@@ -1,0 +1,146 @@
+\section{Coomologia continua}
+
+\subsection{Definizioni}
+
+Riportiamo la definizione di topologia compatta-aperta e ne ricordiamo alcune utili proprietà.
+
+\begin{definition}
+Siano $X$, $Y$ spazi topologici, $F(X,Y)$ l'insieme delle funzioni continue da $X$ in $Y$. La \defterm{topologia compatta-aperta} su $F(X,Y)$ è la topologia generata dai sottoinsiemi
+\[
+V(K,U)=\{f\in F(X,Y): f(K)\subs U\}
+\]
+al variare di $K\subs X$ compatto e di $U\subs Y$ aperto.
+\end{definition}
+
+\begin{lemma}\thlabel{compact-open-topology-lemma}
+\begin{enumerate}
+\item Siano $X$, $Y$, $Z$ spazi topologici, $\map{f}{Y}{Z}$, $\map{g}{X}{Y}$ funzioni continue. Allora le applicazioni
+\begin{align*}
+\map{f\circ{-}}{F(X,Y)}{F(X,Z)},&&\map{{-}\circ g}{F(Y,Z)}{F(X,Z)}
+\end{align*}
+sono continue.
+\item Siano $X$, $Y$ spazi topologici con $X$ localmente compatto e Hausdorff. Allora l'applicazione di valutazione
+\uMap{F(X,Y)\times X}{Y}{(f,x)}{f(x)}
+è continua.
+\end{enumerate}
+\end{lemma}
+
+In questa sezione, tutti moduli di (co)catene e di (co)omologia saranno da intendersi a coefficienti in $\RR$.
+
+Sia $M$ una $n$-varietà. Consideriamo sullo spazio $S_i(M)=F(\Delta^i,M)$ degli $i$-simplessi singolari la topologia compatta aperta.
+
+\begin{definition}
+Una cocatena $\varphi\in C^i(M)$ si dice \defterm{continua} se la sua restrizione a $S_i(M)$ è continua.
+\end{definition}
+
+Osserviamo che se $\varphi\in C^i(M)$ è continua, allora anche $\varphi\del\in C^{i+1}(M)$ lo è (grazie al \thref{compact-open-topology-lemma}). Dunque le cocatene continue formano un sottocomplesso di $C^\bul(M)$, che denotiamo con $C^\bul_c(M)$; indichiamo inoltre con $C^\bul_{b,c}(M)=C^\bul_c(M)\cup C^\bul_b(M)$ il complesso delle cocatene continue limitate. I moduli di coomologia relativi ai complessi $C^\bul_c(M)$ e $C^\bul_{b,c}$ saranno denotati, rispettivamente, con $H^\bul_c(M)$ e $H^\bul_{b,c}(M)$. Le inclusioni di complessi
+\begin{align*}
+\map{i^\bul}{C^\bul_c(M)}{C^\bul(M)},&&\map{i^\bul_b}{C^\bul_{b,c}(M)}{C^\bul_b(M)}
+\end{align*}
+inducono mappe in coomologia
+\begin{align*}
+\map{H^\bul(i^\bul)}{H^\bul_c(M)}{H^\bul(M)},&&\map{H^\bul_b(i^\bul_b)}{H^\bul_{b,c}(M)}{H^\bul_b(M)}.
+\end{align*}
+In questa sezione ci domanderemo se queste mappe siano isomorfismi, dando risposta affermativa nel caso in cui $M$ ammetta una metrica Riemanniana a curvatura non positiva.
+
+
+\subsection{Cocatene continue e moduli relativamente iniettivi}
+
+Sia $M$ una $n$-varietà chiusa, $\map{p}{\widetilde M}{M}$ il suo rivestimento universale. Fissiamo un'identificazione di $\Gamma=\pi_1(M)$ con il gruppo degli automorfismi di rivestimento di $p$.
+
+Ricordiamo che i moduli $C^i(\widetilde M)$ hanno una struttura naturale di $\RR[\Gamma]$-moduli. Osserviamo che per ogni $g\in\Gamma$ l'applicazione $\map{g\cdot{-}}{S_i(\widetilde M)}{S_i(\widetilde M)}$ è continua (grazie al \thref{compact-open-topology-lemma}), dunque i moduli $C^i_c(\widetilde M)$ ereditano per restrizione una struttura di $\RR[\Gamma]$-moduli. Analogamente, i moduli $C^i_{b,c}(\widetilde M)$ ereditano una struttura di $\RR[\Gamma]$-moduli normati.
+
+\begin{lemma}\thlabel{continuous-gamma-invariant-cochains}
+Il morfismo di complessi $\map{p^\bul}{C^\bul(M)}{C^\bul(\widetilde M)}$ induce per restrizione isomorfismi \todo{Che norma c'è su $C^\bul_c(M)$?} isometrici di complessi
+\begin{align*}
+\map{p^\bul|_{C^\bul_c(M)}}{C^\bul_c(M)}{C^\bul_c(\widetilde M)^\Gamma},&&\map{p^\bul|_{C^\bul_{b,c}(M)}}{C^\bul_{b,c}(M)}{C^\bul_{b,c}(\widetilde M)^\Gamma},
+\end{align*}
+i quali a loro volta inducono isomorfismi isometrici in coomologia
+\begin{align*}
+H^\bul_c(M)\iso H^\bul(C^\bul_c(M)^\Gamma),&&H^\bul_{b,c}(M)\iso H^\bul_{b,c}(C^\bul_{b,c}(\widetilde M)^\Gamma).
+\end{align*}
+\end{lemma}
+
+\begin{lemma}\thlabel{universal-covering-mysterious-function}
+Esiste una funzione continua $\map{h_{\widetilde M}}{\widetilde M}{[0,1]}$ che soddisfa le seguenti proprietà:
+\begin{enumerate}
+\item per ogni $x\in\widetilde M$ esiste un intorno $W\subs \widetilde M$ di $x$ tale che l'insieme
+\[
+\{g\in\Gamma:g(W)\cap \supp h_{\widetilde M}\neq\emptyset\}
+\]
+è finito;
+\item per ogni $x\in\widetilde M$ vale
+\[
+\sum_{g\in\Gamma}h_{\widetilde M}(g\cdot x)=1.
+\]
+\end{enumerate}
+\end{lemma}
+
+\begin{proposition}\thlabel{continuous-cochains-relatively-injective-module}
+Per ogni $i\ge 0$, i moduli $C^i_c(\widetilde M)$ e $C^i_{b,c}(\widetilde M)$ sono relativamente iniettivi (rispettivamente come $\RR[\Gamma]$-modulo e come $\RR[\Gamma]$-modulo normato).
+\end{proposition}
+\begin{proof}
+Mostriamo innanzitutto che $C^i_c(\widetilde M)$ è un $\RR[\Gamma]$-modulo relativamente iniettivo. Siano $A$, $B$ due $\RR[\Gamma]$-moduli, $\map{\iota}{A}{B}$ una funzione $\Gamma$-lineare fortemente iniettiva con inversa sinistra $\RR$-lineare $\map{\sigma}{B}{A}$, $\map{\alpha}{A}{C^i_c(\widetilde M)}$ una funzione $\Gamma$-lineare.
+\begin{diagram}
+0\rar&A\rar["\iota",swap]\dar{\alpha}&B\ar[dl,dashed,"\beta"]\lar["\sigma", bend right = 30,swap]\\
+&C^i_c(\widetilde M)
+\end{diagram}
+Sia $h_{\widetilde M}$ una funzione come nel \thref{universal-covering-mysterious-function}. Per ogni $b\in B$ definiamo la cocatena $\beta(b)\in C^i_c(\widetilde M)$ come l'unica applicazione $\RR$-lineare tale che per ogni $s\in S_i(\widetilde M)$ valga
+\[
+\beta(b)(s)=\sum_{g\in\Gamma}h_{\widetilde M}(g^{-1}(s(e_0)))\cdot \alpha(g(\sigma(g^{-1}(b))))(s),
+\]
+dove $e_0,\ldots,e_i$ sono i vertici del simplesso standard $\Delta^i$. Osserviamo che, per le proprietà di $h_{\widetilde M}$, la somma su $g$ è in realtà una somma finita, dunque $\beta(b)(s)$ è ben definito.
+\begin{itemize}
+\item \textbf{$\beta(b)$ è una cocatena continua.} Per definizione di $h_{\widetilde M}$, per ogni $s\in S_i(\widetilde M)$ esiste un intorno $W\subs \widetilde M$ di $s(e_0)$ tale che
+\[
+\Gamma_s=\{g\in\Gamma:g^{-1}(W)\cap\supp h_{\widetilde M}\neq\emptyset\}
+\]
+è finito. Allora per ogni $s'\in V(\{e_0\},W)$ (che è un intorno di $s$ in $S_i(\widetilde M)$) vale
+\[
+\beta(b)(s')=\sum_{g\in\Gamma_s}h_{\widetilde M}(g^{-1}(s'(e_0)))\cdot \alpha(g(\sigma(g^{-1}\cdot b)))(s'),
+\]
+che è evidentemente continua in $s'$ (grazie al \thref{compact-open-topology-lemma}).
+\item \textbf{$\beta$ è $\Gamma$-lineare.} Sia $g_0\in\Gamma$. Abbiamo
+\begin{align*}
+\beta(g_0\cdot b)(s)&=\sum_{g\in\Gamma}h_{\widetilde M}(g^{-1}(s(e_0)))\cdot \alpha(g(\sigma(g^{-1}g_0\cdot b)))(s)\\
+&=\sum_{k\in\Gamma}h_{\widetilde M}(k^{-1}g_0^{-1}(s(e_0)))\cdot\alpha(g_0k(\sigma(k^{-1}\cdot b)))(s)\\
+&=\sum_{k\in\Gamma}h_{\widetilde M}(k^{-1}(g_0^{-1}\circ s)(e_0)))\cdot\alpha(k(\sigma(k^{-1}\cdot b)))(g_0^{-1}\circ s)\\
+&=\beta(b)(g_0^{-1}\circ s)=(g_0\cdot\beta(b))(s).
+\end{align*}
+\item \textbf{Vale $\beta\circ\iota=\alpha$.}. Sia $a\in A$. Abbiamo
+\begin{align*}
+\beta(\iota(a))(s)&=\sum_{g\in\Gamma}h_{\widetilde M}(g^{-1}(s(e_0)))\cdot \alpha(g(\sigma(g^{-1}\cdot\iota(a))))(s)\\
+&=\sum_{g\in\Gamma}h_{\widetilde M}(g^{-1}(s(e_0)))\cdot \alpha(g(\sigma(\iota(g^{-1}\cdot a))))(s)\\
+&=\sum_{g\in\Gamma}h_{\widetilde M}(g^{-1}(s(e_0)))\cdot \alpha(a)(s)=\alpha(a)(s).
+\end{align*}
+\end{itemize}
+Abbiamo dunque mostrato che $C^i_c(\widetilde M)$ è un $\RR[\Gamma]$-modulo relativamente iniettivo.
+
+La stessa costruzione funziona anche per $C^i_{b,c}(\widetilde M)$ nel contesto di $\RR[\Gamma]$-moduli normati: infatti, poiché $\norm{\sigma}\le 1$, si vede che $\norm{\beta}\le\norm{\alpha}$. Dunque $C^i_{b,c}(\widetilde M)$ è un $\RR[\Gamma]$-modulo normato relativamente iniettivo.
+\end{proof}
+
+\subsection{Varietà con curvatura non positiva}
+Nonostante si possa proseguire anche con ipotesi meno restrittive, per semplicità ci limiteremo a considerare, da qui alla fine della sezione, varietà $M$ che ammettano una metrica Riemanniana con curvatura non positiva.
+
+In questo contesto, il teorema di Cartan-Hadamard garantisce che ogni coppia di punti $x,y\in\widetilde M$ siano collegati da un'unica geodetica; inoltre le parametrizzazioni a velocità costante delle geodetiche dipendono in modo continuo dagli estremi. Questo fatto permette di realizzare una procedura di raddrizzamento dei simplessi singolari.
+
+\begin{definition}
+Siano $x_0,\ldots,x_k$ punti di $\widetilde M$. Il \emph{simplesso dritto} di vertici $x_0,\ldots,x_k$ è un simplesso singolare $[x_0,\ldots,x_k]\in S_k(\widetilde M)$ definito induttivamente come segue.
+\begin{itemize}
+\item Se $k=0$, allora $[x_0]$ è lo $0$-simplesso avente immagine $x_0$.
+\item Se $k>0$, allora $[x_0,\ldots,x_k]$ è univocamente determinato dalla seguente condizione: per ogni $z\in\Delta^{k-1}\subs\Delta^k$, la restrizione di $[x_0,\ldots,x_k]$ al segmento di estremi $z$ e $e_k$ è la parametrizzazione a velocità costante della geodetica che collega $[x_0,\ldots,x_{k-1}](z)$ a $x_k$.
+\end{itemize}
+\end{definition}
+
+È facile vedere, grazie a Cartan-Hadamard, che la definizione è ben posta (ossia $[x_0,\ldots,x_k]$ è una funzione continua).
+
+\subsection{Cocatene continue e risoluzioni forti di $\RR$}
+
+\begin{proposition}\thlabel{continuous-cochains-strong-resolution-R}
+I complessi $C^\bul_c(\widetilde M)$ e $C^\bul_{b,c}(\widetilde M)$ sono risoluzioni \todo{Il fatto che i complessi siano esatti segue dal fatto che l'identità è omotopa a 0, giusto?} forti di $\RR$ (rispettivamente come $\RR[\Gamma]$-modulo e come $\RR[\Gamma]$-modulo normato).
+\end{proposition}
+\begin{proof}
+Fissiamo un $x_0\in\widetilde M$. Definiamo per ogni $i\ge 0$ un operatore $\RR$-lineare $\map{T_k}{C_k(\widetilde M)}{C_{k+1}(\widetilde M)}$. Consideriamo l'applicazione
+\Map{r}{\Delta^k}{\Delta^{k+1}}{t_0e_0+\ldots+t_ke_k}{t_0e_1+\ldots+t_ke_{k+1}}
+che identifica $\Delta^k$ con la faccia di $\Delta^{k+1}$ opposta a $e_0$. Dato un simplesso singolare $s\in S_k(\widetilde M)$, definiamo $T_k(s)\in S_{k+1}(\widetilde M)$ come l'unico simplesso singolare che soddisfa la seguente condizione: per ogni $q\in\Delta^k$, la restrizione di $T_k(s)$ al segmento di estremi $e_0$ e $r(q)$ è la parametrizzazione a velocità costante della geodetica di $\widetilde M$ di estremi $x_0$ e $s(q)$.
+\end{proof}

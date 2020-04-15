@@ -1,0 +1,103 @@
+\ProvidesPackage{mystyle}
+
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+
+%Style
+%\usepackage[a4paper]{geometry}
+
+% Math packages
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{thmtools}
+\usepackage{thm-restate}
+
+% References
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+\usepackage[lowercase]{theoremref}
+
+% Lists
+\usepackage[shortlabels]{enumitem}
+\setlist[enumerate,1]{label={(\roman*)}}
+\setlist[itemize,1]{label=\tiny\(\blacksquare\)}
+
+% Theorem environments
+\theoremstyle{definition}
+\newtheorem{definition}{Definizione}[section]
+\newtheorem*{definition*}{Definizione}
+\newtheorem*{notation*}{Notazione}
+\theoremstyle{plain}
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem{proposition}[theorem]{Proposizione}
+\newtheorem*{proposition*}{Proposizione}
+\newtheorem{corollary}[theorem]{Corollario}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem*{lemma*}{Lemma}
+\newcommand*{\defterm}[1]{\emph{#1}}
+
+% Diagrams
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\tikzset{
+  symbol/.style={
+    draw=none,
+    every to/.append style={
+      edge node={node [sloped, allow upside down, auto=false]{$#1$}}}
+  }
+}
+\newenvironment*{diagram}[1][]{\begin{equation*}\begin{tikzcd}[#1]}{\end{tikzcd}\end{equation*}\ignorespacesafterend}
+\newcommand*{\longexactsequence}[2]{%
+\begin{flalign*}\begin{tikzcd}[ampersand replacement=\&]#1\end{tikzcd}&&\end{flalign*}%
+\vspace{-0.4cm}%
+\begin{flalign*}&&\begin{tikzcd}[ampersand replacement=\&]#2\end{tikzcd}\end{flalign*}%
+}
+
+% Operators
+\newcommand*{\dirsum}{\mathbin{\oplus}}
+\newcommand*{\Dirsum}{\bigoplus}
+\newcommand*{\tensor}{\mathbin{\otimes}}
+\newcommand*{\cupp}{\mathbin{\smile}}
+\newcommand*{\norm}[1]{\left\lVert #1\right\rVert}
+
+% Mathbb
+\newcommand*{\NN}{\mathbb{N}}
+\newcommand*{\ZZ}{\mathbb{Z}}
+\newcommand*{\RR}{\mathbb{R}}
+
+% Relations
+\newcommand*{\subs}{\subseteq}
+\newcommand*{\sups}{\supseteq}
+\newcommand*{\iso}{\simeq}
+
+% Other aliases
+\newcommand*{\phantomop}{\phantom{{}={}}}
+\newcommand*{\bul}{\bullet}
+\newcommand*{\del}{\partial}
+
+% Maps
+\newcommand*{\map}[3]{#1\colon#2\mathchoice{\longrightarrow}{\to}{\to}{\to}#3}
+\newcommand*{\Map}[5]{%
+\begin{alignat*}{2}
+#1:\;&&#2&\longrightarrow#3\\
+&&#4&\longmapsto#5
+\end{alignat*}
+}\newcommand*{\uMap}[4]{%
+\begin{align*}
+#1&\longrightarrow#2\\
+#3&\longmapsto#4
+\end{align*}
+}
+% DeclareMathOperator
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\supp}{supp}
