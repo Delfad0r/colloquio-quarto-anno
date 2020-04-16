@@ -1,0 +1,63 @@
+\section{Principio di proporzionalità di Gromov}
+
+\subsection{Mappa di restrizione}
+Utilizziamo le notazioni della sezione precedente, continuando a supporre che $M$ sia una varietà Riemanniana chiusa con curvatura non positiva. Sia $G$ il gruppo delle isometrie di $\widetilde M$ che preservano l'orientazione. È ben noto che $G$ ammette una struttura di gruppo di Lie che induce la topologia compatta-aperta. Di conseguenza esiste una misura di Borel regolare invariante a sinistra su $G$ (\defterm{misura di Haar}), unica a meno di riscalamento.
+
+Poiché $\Gamma$ è un sottogruppo discreto di $G$ e $M\iso\widetilde M/\Gamma$ è compatta, esiste un insieme misurabile $F\subs G$ relativamente compatto tale che $\{\gamma\cdot F\}_{\gamma\in\Gamma}$ definisca una partizione localmente finita di $G$. In particolare, $\Gamma$ è cocompatto in $G$, pertanto la misura di Haar è anche invariante a destra. D'ora in poi supporremo che tale misura sia riscalata in modo che $F$ abbia misura $1$.
+\todo{Reference please.}
+
+\begin{definition}
+Indichiamo con $C^\bul_c(\widetilde M)^G$ il complesso delle cocatene continue $G$-invarianti. L'inclusione di complessi $\umap{C^\bul_c(\widetilde M)^G}{C^\bul_c(\widetilde M)^\Gamma}$ induce una mappa in coomologia
+\[
+\map{\res^\bul}{H^\bul(C^\bul_c(\widetilde M)^G)}{H^\bul(C^\bul_c(\widetilde M)^\Gamma)}
+\]
+detta \defterm{mappa di restrizione}.
+\end{definition}
+
+Osserviamo che, considerando su $H^\bul(C^\bul_c(\widetilde M)^G)$ e $H^\bul(C^\bul_c(\widetilde M)^\Gamma)$ le seminorme indotte rispettivamente da $C^\bul_c(\widetilde M)^G$ e $C^\bul_c(\widetilde M)^\Gamma$, la mappa di restrizione risulta $1$-Lipschitz.
+
+Ci proponiamo ora di costruire un'inversa sinistra $1$-Lipschitz di $\res^\bul$. Indichiamo con $\mu_G$ la misura di Haar su $G$. Per ogni $\varphi\in C^i_c(\widetilde M)$ e per ogni $s\in S_i(\widetilde M)$ definiamo
+\[
+\trans^i(\varphi)(s)=\int_F\varphi(g\cdot s)d\mu_G(g).
+\]
+Si tratta di una buona definizione, poiché $\varphi({-}\cdot s)$ è una funzione continua da $G$ in $\RR$ e $F$ è relativamente compatto. Estendendo $\trans^i(\varphi)$ per linearità, otteniamo un elemento di $C^i(\widetilde M)$.
+
+\begin{proposition}\thlabel{trans-map-properties}
+Per ogni $\varphi\in C^i_c(\widetilde M)$ valgono le seguenti proprietà.
+\begin{enumerate}
+\item La cocatena $\trans^i(\varphi)$ è continua.
+\item Se $\varphi$ è $\Gamma$-invariante, allora $\trans^i(\varphi)$ è $G$-invariante.
+\item Se $\varphi$ è $G$-invariante, allora $\trans^i(\varphi)=\varphi$.
+\end{enumerate}
+\end{proposition}
+\begin{proof}\leavevmode
+\begin{enumerate}
+\item Osserviamo innanzitutto che la topologia compatta-aperta su $S_i(\widetilde M)$ è indotta dalla distanza
+\[
+\dist(s,s')=\sup\{\dist_{\widetilde M}(s(x),s'(x)):x\in\Delta^i\}.
+\]
+Sia $s_0\in S_i(\widetilde M)$, e sia $\epsilon>0$. Poiché $\overline{F}$ è compatto in $G$, dal \thref{compact-open-topology-lemma} si ottiene immediatamente che $\overline{F}\cdot s_0$ è compatto in $S_i(\widetilde M)$. Dalla continuità di $\varphi$ segue facilmente l'esistenza di un $\eta>0$ tale che per ogni $s\in\overline{F}\cdot s_0$ e per ogni $s'\in S_i(\widetilde M)$ con $\dist(s,s')<\eta$ valga $|\varphi(s)-\varphi(s')|\le\epsilon$. Sia dunque $s\in S_i(\widetilde M)$ tale che $\dist(s_0,s)<\eta$. Poiché $G$ agisce su $S_i(\widetilde M)$ in modo isometrico, allora anche $\dist(g\cdot s_0,g\cdot s)<\eta$ per ogni $g\in G$. Ma allora
+\[
+|\trans^i(\varphi)(s)-\trans^i(\varphi)(s_0)|\le\int_F|\varphi(g\cdot s)-\varphi(g\cdot s')|d\mu_G(g)\le\epsilon\mu_G(F)=\epsilon
+\]
+dunque $\trans^i(\varphi)$ è continua.
+\item Fissiamo $\varphi\in C^i_c(\widetilde M)$, $s\in S_i(\widetilde M)$, $g_0\in G$. Poiché $F$ è relativamente compatto, lo sono anche $F\cdot g_0$ e $F\cdot g_0^{-1}$, dunque esistono un numero finito di elementi $\gamma_1,\ldots,\gamma_r\in\Gamma$ tali che
+\begin{align*}
+F\cdot g_0\subs\bigsqcup_{j=1}^r\gamma_j\cdot F&&\text{e}&&F\cdot g_0^{-1}\subs\bigsqcup_{j=1}^r\gamma_j^{-1}\cdot F.
+\end{align*}
+Posto $F_j=(\gamma_j^{-1}\cdot F\cdot g_0)\cap F$ si ottiene immediatamente che
+\begin{align*}
+F=\bigsqcup_{j=1}^rF_j&&\text{e}&&F\cdot g_0=\bigsqcup_{j=1}^r\gamma_j\cdot F_j.
+\end{align*}
+Sfruttando il fatto che $\mu_G$ è invariante a destra e a sinistra e che $\varphi$ è $\Gamma$-invariante si ottiene
+\begin{align*}
+\trans^i(\varphi)(g_0\cdot s)&=\int_F\varphi(gg_0\cdot s)d\mu_G(g)\\
+&=\int_{F\cdot g_0}\varphi(g\cdot s)d\mu_G(g)\\
+&=\sum_{j=1}^r\int_{\gamma_j\cdot F_j}\varphi(g\cdot s)d\mu_G(g)\\
+&=\sum_{j=1}^r\int_{F_j}\varphi(\gamma_jg\cdot s)d\mu_G(g)\\
+&=\sum_{j=1}^r\int_{F_j}\varphi(g\cdot s)d\mu_G(g)\\
+&=\int_F\varphi(g\cdot s)d\mu_G(g)=\trans(\varphi)(s).
+\end{align*}
+\item Se $\varphi$ è $G$-invariante segue immediatamente dalla definizione che $\trans^i(\varphi)=\varphi$.
+\end{enumerate}
+\end{proof}
