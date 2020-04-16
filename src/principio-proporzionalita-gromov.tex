@@ -22,10 +22,11 @@ Ci proponiamo ora di costruire un'inversa sinistra $1$-Lipschitz di $\res^\bul$.
 \]
 Si tratta di una buona definizione, poiché $\varphi({-}\cdot s)$ è una funzione continua da $G$ in $\RR$ e $F$ è relativamente compatto. Estendendo $\trans^i(\varphi)$ per linearità, otteniamo un elemento di $C^i(\widetilde M)$.
 
-\begin{proposition}\thlabel{trans-map-properties}
+\begin{proposition}\thlabel{transfer-map-properties}
 Per ogni $\varphi\in C^i_c(\widetilde M)$ valgono le seguenti proprietà.
 \begin{enumerate}
 \item La cocatena $\trans^i(\varphi)$ è continua.
+\item Vale $\trans^{i+1}(\varphi\circ d^{i+1})=\trans^i(\varphi)\circ d^{i+1}$.
 \item Se $\varphi$ è $\Gamma$-invariante, allora $\trans^i(\varphi)$ è $G$-invariante.
 \item Se $\varphi$ è $G$-invariante, allora $\trans^i(\varphi)=\varphi$.
 \end{enumerate}
@@ -41,6 +42,21 @@ Sia $s_0\in S_i(\widetilde M)$, e sia $\epsilon>0$. Poiché $\overline{F}$ è co
 |\trans^i(\varphi)(s)-\trans^i(\varphi)(s_0)|\le\int_F|\varphi(g\cdot s)-\varphi(g\cdot s')|d\mu_G(g)\le\epsilon\mu_G(F)=\epsilon
 \]
 dunque $\trans^i(\varphi)$ è continua.
+\item Sia $s\in S_{i+1}(\widetilde M)$, e siano $a_0,\ldots,a_{i+1}\in\RR$, $s_0,\ldots,s_{i+1}\in S_i(\widetilde M)$ tali che
+\[
+d^{i+1}(s)=\sum_{j=0}^{i+1}a_js_j.
+\]
+Osserviamo che
+\[
+d^{i+1}(g\cdot s)=\sum_{j=0}^ra_j(g\cdot s_j),
+\]
+per ogni $g\in G$, da cui
+\begin{align*}
+\trans^{i+1}(\varphi\circ d^{i+1})(s)&=\int_F\varphi(d^{i+1}(g\cdot s))d\mu_G(g)\\
+&=\sum_{j=0}^{i+1}a_j\int_F\varphi(g\cdot s_j)d\mu_G(g)\\
+&=\sum_{j=0}^{i+1}a_j\trans^i(\varphi)(s_j)\\
+&=\trans^i(\varphi)\left(\sum_{j=0}^{i+1}a_js_j\right)=\trans^i(\varphi)(d^{i+1}s).
+\end{align*}
 \item Fissiamo $\varphi\in C^i_c(\widetilde M)$, $s\in S_i(\widetilde M)$, $g_0\in G$. Poiché $F$ è relativamente compatto, lo sono anche $F\cdot g_0$ e $F\cdot g_0^{-1}$, dunque esistono un numero finito di elementi $\gamma_1,\ldots,\gamma_r\in\Gamma$ tali che
 \begin{align*}
 F\cdot g_0\subs\bigsqcup_{j=1}^r\gamma_j\cdot F&&\text{e}&&F\cdot g_0^{-1}\subs\bigsqcup_{j=1}^r\gamma_j^{-1}\cdot F.
@@ -60,4 +76,23 @@ Sfruttando il fatto che $\mu_G$ è invariante a destra e a sinistra e che $\varp
 \end{align*}
 \item Se $\varphi$ è $G$-invariante segue immediatamente dalla definizione che $\trans^i(\varphi)=\varphi$.
 \end{enumerate}
+\end{proof}
+
+\begin{corollary}\thlabel{restriction-map-isometric-embedding}
+La mappa di restrizione
+\[
+\map{\res^\bul}{H^\bul(C^\bul_c(\widetilde M)^G)}{H^\bul(C^\bul_c(\widetilde M)^\Gamma)}
+\]
+è un'immersione isometrica.
+\end{corollary}
+\begin{proof}
+Dalla \thref{transfer-map-properties} segue immediatamente che
+\[
+\map{\trans^\bul}{C^\bul_c(\widetilde M)^\Gamma}{C^\bul_c(\widetilde M)^G}
+\]
+è un morfismo di complessi ben definito la cui restrizione a $C^\bul_c(\widetilde M)^G$ è l'identità. Poiché $\trans^\bul$ è evidentemente $1$-Lipschitz, guardando la corrispondente mappa in coomologia si ottiene che
+\[
+\map{H^\bul(\trans^\bul)}{H^\bul(C^\bul_c(\widetilde M)^\Gamma)}{H^\bul(C^\bul_c(\widetilde M)^G)}
+\]
+è una mappa $1$-Lipschitz tale che $H^\bul(\trans^\bul)\circ \res^\bul$ sia l'identità. Questo conclude la dimostrazione.
 \end{proof}
