@@ -96,3 +96,68 @@ Dalla \thref{transfer-map-properties} segue immediatamente che
 \]
 è una mappa $1$-Lipschitz tale che $H^\bul(\trans^\bul)\circ \res^\bul$ sia l'identità. Questo conclude la dimostrazione.
 \end{proof}
+
+\subsection{Cociclo volume}
+Se $X$ è una varietà Riemanniana, denotiamo con $\prepost[_s]{S}{_k}(X)$ lo spazio dei $k$-simplessi \defterm{lisci} di $X$ (ossia l'insieme delle funzioni lisce da $\Delta^k$ in $X$) munito della topologia $C^1$.
+
+\begin{proposition}\thlabel{straight-simplices-are-smooth}
+Per ogni $x_0,\ldots,x_k\in\widetilde M$, il simplesso dritto $[x_0,\ldots,x_k]$ è liscio. Inoltre l'applicazione
+\uMap{\widetilde M\times\ldots\times\widetilde M}{\prepost[_s]{S}{_k}(\widetilde M)}{(x_0,\ldots,x_k)}{[x_0,\ldots,x_k]}
+è continua.
+\end{proposition}
+\begin{proof}
+
+\end{proof}
+
+Per ogni $s\in S_k(\widetilde M)$ definiamo $\tstr_k(s)=[s(e_0),\ldots,s(e_k)]$. Estendendo $\tstr_k$ per $\RR$-linearità otteniamo un'applicazione $\map{\tstr_k}{S_k(\widetilde M)}{S_k(\widetilde M)}$.
+
+\begin{proposition}\thlabel{straightening-map-properties}
+L'applicazione $\map{\tstr_k}{S_k(\widetilde M)}{S_k(\widetilde M)}$ soddisfa le seguenti proprietà.
+\begin{enumerate}
+\item $d_{k+1}\circ\tstr_{k+1}=\tstr_{k+1}\circ d_k$ per ogni $k\ge 0$ (ossia $\map{\tstr_\bul}{C_\bul(\widetilde M)}{C_\bul(\widetilde M)}$ è un morfismo di complessi).
+\item $\tstr_k(\gamma\circ s)=\gamma\circ\tstr_k(s)$ per ogni $k\ge 0$, $\gamma\in\Gamma$, $s\in S_k(\widetilde M)$.
+\item $\map{\tstr_\bul}{C_\bul(\widetilde M)}{C_\bul(\widetilde M)}$ è omotopa all'identità mediante un'omotopia $\Gamma$-equivariante che manda simplessi lisci in una somma finita di simplessi lisci.
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+\leavevmode
+\begin{enumerate}
+\item È immediato verificare che la $i$-esima faccia di $[x_0,\ldots,x_k]$ è $[x_0,\ldots,\widehat{x_i},\ldots,x_k]$, da cui la tesi.
+\item Poiché le isometrie preservano le geodetiche, si ha
+\[
+\gamma\circ[x_0,\ldots,x_k]=[\gamma(x_0),\ldots,\gamma(x_k)],
+\]
+da cui la tesi.
+\item Dato un simplesso singolare $s\in S_k(\widetilde M)$ definiamo l'applicazione $\map{F}{\Delta^k\times[0,1]}{\widetilde M}$ in modo che per ogni $x\in\Delta^k$ la mappa $\map{F(x,-)}{[0,1]}{\widetilde M}$ sia la parametrizzazione a velocità costante della geodetica che congiunge $s(x)$ con $\tstr_k(s)(x)$. Definiamo poi $T_k(s)=F_\bul(c)$, dove $c\in C_{k+1}(\Delta^k\times[0,1])$ è la triangolazione standard di $\Delta^k\times[0,1]$. È immediato verificare che $d_{k+1}\circ T_k+T_{k-1}\circ d_k=\id-\tstr_k$, mentre la $\Gamma$-equivarianza di $T_k$ segue dal fatto che le isometrie preservano le geodetiche.\qedhere
+\end{enumerate}
+\end{proof}
+
+Come conseguenza otteniamo un morfismo di complessi $\map{\str_\bul}{C_\bul(M)}{C_\bul(M)}$ omotopo all'identità. Inoltre, dalla \thref{straight-simplices-are-smooth}, $\str_k(s)$ è un simplesso liscio di $M$ per ogni $s\in S_k(M)$, e le restrizioni $\map{\str_k}{S_k(M)}{\prepost[_s]{S}{_k}(M)}$ sono continue.
+
+Supponiamo ora che $M$ sia orientata, e sia $n$ la dimensione di $M$. Denotiamo con $\omega_M\in\Omega^n(M)$ la forma volume di $M$.
+\begin{definition}
+Per ogni $s\in S_n(M)$ definiamo
+\[
+\Vol_M(s)=\int_{\str_n(s)}\omega_M.
+\]
+Estendendo per linearità, otteniamo una cocatena $\Vol_M\in C^n(M)$, detta \defterm{cocatena volume}.
+\end{definition}
+Poiché $\map{\str_n}{S_n(M)}{\prepost[_s]{S}{_n}(M)}$ è continua e l'integrazione è continua rispetto alla topologia $C^1$, otteniamo che la cocatena volume è continua. Osserviamo inoltre che per ogni $s\in S_{n+1}(M)$ vale
+\[
+\Vol_M(d(s))=\int_{\str_n(d(s))}\omega_M=\int_{d\str_{n+1}(s)}\omega_M=\int_{\str_{n+1}(s)}d\omega_M=0,
+\]
+dove abbiamo utilizzato il fatto che $\str_\bul$ è un morfismo di complessi e il teorema di Stokes. Pertanto $\Vol_M$ è un cociclo, e definisce classi $[\Vol_M]\in H^n(M)$, $[\Vol_M]_c\in H^n_c(M)$ in coomologia.
+
+\begin{lemma}\thlabel{volume-and-fundamental-coclass}
+Vale $[\Vol_M]=\Vol(M)\cdot[M]^*$.
+\end{lemma}
+\begin{proof}
+Osserviamo innanzitutto che $[\Vol_M]=\langle[\Vol_M],[M]\rangle\cdot[M]^*$. È ben noto che la classe fondamentale di $M$ ammette un rappresentante della forma $c=\sum s_i$, dove gli $s_i$ sono gli $n$-simplessi lisci e orientati positivamente di una triangolazione di $M$. Per la \thref{straightening-map-properties}, $c-\str_n(c)$ è bordo di una catena di simplessi lisci. Pertanto
+\[
+\langle[\Vol_M],[M]\rangle=\Vol_M(c)=\int_{\str_n(c)}\omega_M=\int_{c}\omega_M=\Vol(M),
+\]
+dove abbiamo usato il teorema di Stokes per dedurre che
+\[
+\int_{c-\str_n(c)}\omega_M=0.\qedhere
+\]
+\end{proof}
