@@ -1,0 +1,66 @@
+\section{Volume simpliciale}
+
+\subsection{Complessi seminormati}
+
+\begin{definition}
+Una \defterm{seminorma} su un $\RR$-spazio vettoriale $V$ è una funzione $\map{\norm{-}}{V}{[0,\infty]}$ tale che:
+\begin{enumerate}
+\item $\norm{\lambda\cdot v}=|\lambda|\cdot\norm{v}$ per ogni $\lambda\in\RR$, $v\in V$ (per convenzione, $0\cdot\infty=0$);
+\item $\norm{v+w}\le\norm{v}+\norm{w}$ per ogni $v,w\in V$.
+\end{enumerate}
+\end{definition}
+Osserviamo che, contrariamente all'uso comune, ammettiamo anche $\infty$ come possibile valore assunto dalla seminorma. Una \defterm{norma} su $V$ è una seminorma che soddisfa inoltre le seguenti proprietà:
+\begin{enumerate}
+\item $\norm{v}<\infty$ per ogni $v\in V$;
+\item se $v\in V\setminus\{0\}$ allora $\norm{v}>0$.
+\end{enumerate}
+
+Dati una seminorma $\norm{-}$ su $V$ e un sottospazio vettoriale $W\subs V$, il quoziente $V/W$ eredita una seminorma naturale così definita: per ogni $[v]\in V/W$,
+\[
+\norm{[v]}=\inf\{\norm{v'}:v'\in V,[v]=[v']\}.
+\]
+
+Se $V$ e $W$ sono $\RR$-spazi vettoriali seminormati, un'applicazione lineare $\map{f}{V}{W}$ si dice:
+\begin{itemize}
+\item $L$-Lipschitz se $\norm{f(v)}\le L\cdot\norm{v}$ per ogni $v\in V$;
+\item isometrica se $\norm{f(v)}=\norm{v}$ per ogni $v\in V$.
+\end{itemize}
+Osserviamo che un'isometria fra spazi seminormati non è necessariamente iniettiva. 
+
+Dati due spazi vettoriali seminormati $V_1$, $V_2$, un'applicazione lineare $L$-Lipschitz $\map{f}{V_1}{V_2}$ e due sottospazi $W_1\subs V_1$, $W_2\subs V_2$ tali che $f(W_1)\subs W_2$, si verifica facilmente che l'applicazione indotta $\map{\overline{f}}{V_1/W_1}{V_2/W_2}$ è ancora $L$-Lipschitz. Al contrario, la proprietà di essere isometrica non si conserva per passaggio al quoziente.
+
+\begin{definition}
+Un \defterm{complesso normato} è un complesso $(C_\bul,d_\bul)$ di $\RR$-spazi vettoriali in cui ogni $C_i$ è dotato di una seminorma.
+\end{definition}
+
+Dalla discussione precedente deriva che gli $\RR$-spazi vettoriali $H_i(C_\bul)$ ereditano in modo naturale una seminorma. Inoltre, un morfismo di complessi $L$-Lipschitz $\map{f_\bul}{C_\bul}{C'_\bul}$ induce applicazioni $L$-Lipschitz $\map{H_\bul(f_\bul)}{H_\bul(C_\bul)}{H_\bul(C'_\bul)}$ in omologia.
+
+\subsection{Seminorme singolari e prodotto di Kronecker}
+
+Sia $X$ uno spazio topologico. Muniamo il complesso delle catene singolari $(C_\bul(X),d)$ della norma $\ell^1$, definita come segue: per ogni $\sum_{i=1}^ka_is_i\in C_n(X)$ vale
+\[
+\norm{\sum_{i=1}^ka_is_i}_1=\sum_{i=1}^k|a_i|.
+\]
+Definiamo inoltre la seminorma $\ell^\infty$ sul complesso delle cocatene singolari $(C^\bul(X),\delta)$: data una cocatena $\varphi\in C^n(X)$, la sua seminorma $\ell^\infty$ è
+\[
+\norm{\varphi}_\infty=\sup\{|\varphi(c)|:c\in C_n(X),\norm{c}_1\le 1\}.
+\]
+Di conseguenza i moduli di omologia e coomologia di $X$ ereditano, rispettivamente, le seminorme $\norm{-}_1$ e $\norm{-}_\infty$.
+
+Per ogni $n\ge 0$ è ben definita l'applicazione bilineare
+\Map{\langle-,-\rangle}{H^n(X)\times H_n(X)}{\RR}{([\varphi],[c])}{\varphi(c),}
+detta \defterm{prodotto di Kronecker}. Vale il seguente risultato di dualità.
+
+\begin{proposition}\thlabel{kronecker-product-duality}
+Sia $\alpha\in H_n(X)$. Allora
+\[
+\norm{\alpha}_1=\max\{\langle\beta,\alpha\rangle:\beta\in H^n(X),\norm{\beta}_\infty\le 1\}.
+\]
+\end{proposition}
+\begin{proof}
+Una disuguaglianza segue immediatamente osservando che per ogni $c\in C_n(X)$, $\varphi\in C^n(X)$ vale $\norm{a}_1\cdot\norm{\varphi}_\infty\ge\varphi(a)$. Per dimostrare l'altra, fissiamo un ciclo $a$ che rappresenti $\alpha$. Denotiamo con $B_n(X)\subs C_n(X)$ il sottospazio dei bordi. Per Hahn-Banach, esiste un funzionale lineare $\varphi\in C^n(X)$ di norma al più $1$, nullo su $B_n(X)$ e tale che
+\[
+\varphi(a)=\inf\{\norm{a-b}_1:b\in B_n(X)\}.
+\]
+Ma allora $\varphi(a)=\norm{[a]}_1$, da cui $\langle[\varphi],\alpha\rangle=\norm{\alpha}_1$.
+\end{proof}

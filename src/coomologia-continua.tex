@@ -25,7 +25,7 @@ sono continue.
 \end{enumerate}
 \end{lemma}
 
-In questa sezione, tutti moduli di (co)catene e di (co)omologia saranno da intendersi a coefficienti in $\RR$.
+In questa sezione, tutti moduli di (co)catene e di (co)omologia saranno da intendersi a coefficienti in $\RR$. \todo{Dirlo prima.}
 
 Sia $M$ una $n$-varietà. Consideriamo sullo spazio $S_i(M)=F(\Delta^i,M)$ degli $i$-simplessi singolari la topologia compatta aperta.
 
@@ -162,7 +162,7 @@ H^\bul_c(M)\iso H^\bul(C^\bul_c(M)^\Gamma),&&H^\bul_{b,c}(M)\iso H^\bul_{b,c}(C^
 
 Possiamo infine dimostrare il risultato principale di questa sezione.
 
-\begin{proposition}
+\begin{proposition}\thlabel{continuous-cohomology-isomorphism}
 Sia $M$ una varietà Riemanniana chiusa con curvatura non positiva. Allora le applicazioni
 \begin{align*}
 \map{H^\bul(i^\bul)}{H^\bul_c(M)}{H^\bul(M)},&&\map{H^\bul_b(i^\bul_b)}{H^\bul_{b,c}(M)}{H^\bul_b(M)}
@@ -186,7 +186,7 @@ Fissiamo un $x_0\in\widetilde M$. Per ogni $\varphi\in C^k(\widetilde M)$ e per 
 \[
 \theta^k(\varphi)(s)=\sum_{(g_0,\ldots,g_k)\in\Gamma^{k+1}}h_{\widetilde M}(g_0^{-1}(s(e_0)))\cdots h_{\widetilde M}(g_k^{-1}(s(e_k)))\cdot\varphi([g_0(x_0),\ldots,g_k(x_0)]),
 \]
-dove $\map{h_{\widetilde M}}{\widetilde M}{[0,1]}$ è data dal \thref{universal-covering-mysterious-function}. Grazie alle proprietà di $h_{\widetilde M}$ è facile verificare che $\theta(\varphi)$ (una volta estesa per $\RR$-linearità) definisce un elemento di $C^k_c(\widetilde M)$, e che $\theta^\bul$ risulta essere un morfismo $1$-Lipschitz di complessi di $\RR[\Gamma]$ moduli che estende l'identità di $\RR$.
+dove $\map{h_{\widetilde M}}{\widetilde M}{[0,1]}$ è data dal \thref{universal-covering-mysterious-function}. Grazie alle proprietà di $h_{\widetilde M}$ è facile verificare che $\theta^k(\varphi)$ (una volta estesa per $\RR$-linearità) definisce un elemento di $C^k_c(\widetilde M)$, e che $\theta^\bul$ risulta essere un morfismo $1$-Lipschitz di complessi di $\RR[\Gamma]$-moduli che estende l'identità di $\RR$.
 
 Abbiamo dunque mostrato che le mappe $H^\bul(j^\bul)$ e $H^\bul_b(j^\bul_b)$ sono isomorfismi isometrici. Dai seguenti diagrammi commutativi di complessi
 \begin{diagram}

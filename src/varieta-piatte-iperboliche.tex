@@ -1,0 +1,81 @@
+\section{Varietà euclidee e iperboliche}
+
+\subsection{Varietà euclidee}
+
+Il principio di proporzionalità di Gromov permette di calcolare immediatamente il volume simpliciale di tutte le varietà chiuse euclidee (ossia localmente isometriche a $\RR^n$).
+
+\begin{proposition}\thlabel{simplicial-volume-flat-manifold}
+Sia $M$ una varietà chiusa euclidea. Allora $\norm{M}=0$.
+\end{proposition}
+\begin{proof}
+Osserviamo che l'$n$-toro euclideo $(S^1)^n$ ha volume simpliciale nullo, poiché ammette endomorfismi di grado arbitrariamente alto. Poiché il rivestimento universale di ogni varietà euclidea è isometrico a $\RR^n$, dal \thref{gromov-proportionality-corollary} segue che
+\[
+\frac{\norm{M}}{\Vol(M)}=\frac{\norm{(S^1)^n}}{\Vol((S^1)^n)}=0.\qedhere
+\]
+\end{proof}
+
+\subsection{Varietà iperboliche}
+Nel resto di questa sezione ci proponiamo di calcolare il rapporto $\norm{M}/\Vol(M)$ per varietà chiuse iperboliche (ossia localmente isometriche a $\HH^n$). Il \thref{gromov-proportionality-principle} garantisce che non dipende dalla varietà $M$, e fornisce un metodo per calcolarlo: è sufficiente conoscere la seminorma della coclasse $[\Vol_{\HH^n}]^G_c\in H^n(C^\bul_c(\HH^n)^G)$, dove $G$ denota il gruppo delle isometrie di $\HH^n$ che preservano l'orientazione.
+
+Ricordiamo brevemente alcuni fatti riguardanti la geometria dei simplessi dritti in $\HH^n$. Un \defterm{$k$-simplesso (geodetico)} in $\overline{\HH^n}$ è l'inviluppo convesso di $k+1$ punti in $\HH^n$, detti \defterm{vertici}. Un simplesso si dice \defterm{finito} se tutti i suoi vertici appartengono a $\HH^n$, ideale se tutti i suoi vertici appartengono a $\del\HH^n$, e \defterm{regolare} e ogni permutazione dei suoi vertici si estende a un'isometria di $\HH^n$. I simplessi geodetici sono esattamente le immagini dei simplessi dritti (più precisamente, l'immagine di $[x_0,\ldots,x_k]$ è il simplesso geodetico di vertici $x_0,\ldots,x_k$). Per ogni $\ell>0$ esiste a meno di isometria un unico $n$-simplesso regolare finito di lato $\ell$, che denoteremo con $\tau_\ell$. Inoltre esiste a meno di isometria un unico $n$-simplesso regolare ideale, che denoteremo con $\tau_\infty$; definiamo infine $v_n=\Vol(\tau_\infty)$.
+
+\begin{theorem}\thlabel{maximal-volume-of-hyperbolic-simplices}
+Sia $\Delta$ un $n$-simplesso geodetico in $\HH^n$. Allora $\Vol(\Delta)\le v_n$, e $\Vol(\Delta)=v_n$ se e solo se $\Delta$ è regolare ideale.
+\end{theorem}
+
+\begin{theorem}\thlabel{volume-of-regular-simplices-continuous}
+Vale $\lim\limits_{\ell\to\infty}\Vol(\tau_\ell)=v_n$.
+\end{theorem}\todo{Reference please.}
+
+\begin{proposition}\thlabel{simplicial-volume-hyperbolic-manifold}
+Sia $M$ una $n$-varietà iperbolica chiusa. Allora
+\[
+\norm{M}=\frac{\Vol(M)}{v_n}.
+\]
+\end{proposition}
+\begin{proof}
+Grazie al \thref{gromov-proportionality-principle}, è sufficiente dimostrare che $\norm{[\Vol_{\HH^n}]^G_c}_\infty=v_n$. Dal \thref{maximal-volume-of-hyperbolic-simplices} segue che
+\[
+\norm{[\Vol_{\HH^n}]^G_c}_\infty\le\norm{\Vol_{\HH^n}}_\infty=v_n,
+\]
+quindi rimane da mostrare la disuguaglianza opposta.
+
+Per definizione,
+\[
+\norm{[\Vol_{\HH^n}]^G_c}_\infty=\inf\left\{\norm{\Vol_{\HH^n}+\delta\varphi_\infty}:\varphi\in C^{n-1}_c(\HH^n)^G\right\}.
+\]
+Osserviamo che la cocatena volume è alternante; inoltre il morfismo $1$-Lipschitz $\map{\alt^\bul}{C^\bul(\HH^n)}{C^\bul(\HH^n)}$ preserva le cocatene continue e $G$-invarianti, dunque
+\begin{align*}
+\norm{[\Vol_{\HH^n}]^G_c}_\infty&\ge\inf\left\{\norm{\alt^n(\Vol_{\HH^n}+\delta\varphi)}_\infty:\varphi\in C^{n-1}_c(\HH^n)^G\right\}\\
+&=\inf\left\{\norm{\Vol_{\HH^n}+\delta\alt^{n-1}(\varphi)}_\infty:\varphi\in C^{n-1}_c(\HH^n)^G\right\}\\
+&=\inf\left\{\norm{\Vol_{\HH^n}+\delta\varphi}_\infty:\varphi\in C^{n-1}_{c,\alt}(\HH^n)^G\right\}.
+\end{align*}
+Sia dunque $\varphi$ una $(n-1)$-cocatena continua alternante e $G$-invariante. Consideriamo un $n$-simplesso regolare finito $\tau_\ell$ e la sua parametrizzazione $s_\ell=[\tau_\ell(e_0),\ldots,\tau_\ell(e_n)]$; sia $\del_is_\ell=[\tau_\ell(e_0),\ldots,\widehat{\tau_\ell(e_i)},\ldots,\tau_\ell(e_n)]$ la $i$-esima faccia. Sia $\map{\sigma}{\Delta^{n-1}}{\Delta^{n-1}}$ una mappa affine che induce una permutazione dispari sui vertici di $\Delta^{n-1}$. Poiché $\tau_\ell$ è regolare, esiste un'isometria $g\in G$ di $\HH^n$ tale che $g\circ\del_i s_\ell=\del_i s_\ell\circ\sigma$; a meno di comporre con la riflessione lungo l'iperpiano che contiene l'immagine di $\del_i s_\ell$, possiamo supporre che $g$ preservi l'orientazione. \todo{Funziona no?} Sfruttando il fatto che $\varphi$ è contemporaneamente $G$-invariante e alternante otteniamo
+\[
+\varphi(\del_i s_\ell)=\varphi(g\circ\del_i s_\ell)=\varphi(\del_i s_\ell\circ\sigma)=-\varphi(\del_i s_\ell),
+\]
+da cui $\varphi(\del_i s_\ell)=0$ e $\varphi(ds_\ell)=0$. Pertanto
+\begin{align*}
+\norm{[\Vol_{\HH^n}]^G_c}_\infty&\ge\inf\left\{\norm{\Vol_{\HH^n}+\delta\varphi}_\infty:\varphi\in C^{n-1}_{c,\alt}(\HH^n)^G\right\}\\
+&\ge\inf\left\{|(\Vol_{\HH^n}+\delta\varphi)(s_\ell)|:\varphi\in C^{n-1}_{c,\alt}(\HH^n)^G\right\}\\
+&=|\Vol_{\HH^n}(s_\ell)|=\Vol(\tau_\ell).
+\end{align*}
+Facendo tendere $\ell\to\infty$, dal \thref{volume-of-regular-simplices-continuous} otteniamo $\norm{[\Vol_{\HH^n}]^G_c}_{\infty}\ge v_n$, il che conclude la dimostrazione.
+\end{proof}
+
+\begin{corollary}\thlabel{simplicial-volume-surface}
+Sia $\Sigma_g$ la superficie chiusa orientabile di genere $g$. Allora
+\[
+\norm{\Sigma_g}=
+\begin{cases}
+0&g<2\\
+4g-4&g\ge 2
+\end{cases}.
+\]
+\end{corollary}
+\begin{proof}
+Per i casi $g=0,1$ basta osservare che $S^2$ e $S^1\times S^1$ ammettono endomorfismi di grado arbitrariamente alto, dunque hanno volume simpliciale nullo. Se invece $g\ge2$, è ben noto che $\Sigma_g$ ammette una metrica iperbolica. Ricordando che $v_2=\pi$ e $\Area(\Sigma_g)=-2\pi\chi(\Sigma_g)=4\pi g+4\pi$, dalla \thref{simplicial-volume-hyperbolic-manifold} segue che
+\[
+\norm{\Sigma_g}=\frac{\Area(\Sigma_g)}{v_2}=4g-4.\qedhere
+\]
+\end{proof}
