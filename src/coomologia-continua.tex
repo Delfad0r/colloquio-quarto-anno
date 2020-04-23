@@ -16,7 +16,7 @@ al variare di $K\subs X$ compatto e di $U\subs Y$ aperto.
 \begin{enumerate}
 \item Siano $X$, $Y$, $Z$ spazi topologici, $\map{f}{Y}{Z}$, $\map{g}{X}{Y}$ funzioni continue. Allora le applicazioni
 \begin{align*}
-\map{f\circ{-}}{F(X,Y)}{F(X,Z)},&&\map{{-}\circ g}{F(Y,Z)}{F(X,Z)}
+\map{(f\circ{-})}{F(X,Y)}{F(X,Z)},&&\map{({-}\circ g)}{F(Y,Z)}{F(X,Z)}
 \end{align*}
 sono continue.
 \item Siano $X$, $Y$ spazi topologici con $X$ localmente compatto e Hausdorff. Allora l'applicazione di valutazione
@@ -48,7 +48,7 @@ In questa sezione ci domanderemo se queste mappe siano isomorfismi, dando rispos
 
 Sia $M$ una $n$-varietà chiusa, $\map{p}{\widetilde M}{M}$ il suo rivestimento universale. Fissiamo un'identificazione di $\Gamma=\pi_1(M)$ con il gruppo degli automorfismi di rivestimento di $p$.
 
-Ricordiamo che i moduli $C^i(\widetilde M)$ hanno una struttura naturale di $\RR[\Gamma]$-moduli. Osserviamo che per ogni $g\in\Gamma$ l'applicazione $\map{g\cdot{-}}{S_i(\widetilde M)}{S_i(\widetilde M)}$ è continua (grazie al \thref{compact-open-topology-lemma}), dunque i moduli $C^i_c(\widetilde M)$ ereditano per restrizione una struttura di $\RR[\Gamma]$-moduli. Analogamente, i moduli $C^i_{b,c}(\widetilde M)$ ereditano una struttura di $\RR[\Gamma]$-moduli normati.
+Ricordiamo che i moduli $C^i(\widetilde M)$ hanno una struttura naturale di $\RR[\Gamma]$-moduli. Osserviamo che per ogni $g\in\Gamma$ l'applicazione $\map{(g\cdot{-})}{S_i(\widetilde M)}{S_i(\widetilde M)}$ è continua (grazie al \thref{compact-open-topology-lemma}), dunque i moduli $C^i_c(\widetilde M)$ ereditano per restrizione una struttura di $\RR[\Gamma]$-moduli. Analogamente, i moduli $C^i_{b,c}(\widetilde M)$ ereditano una struttura di $\RR[\Gamma]$-moduli normati.
 
 \begin{lemma}\thlabel{universal-covering-mysterious-function}
 Esiste una funzione continua $\map{h_{\widetilde M}}{\widetilde M}{[0,1]}$ che soddisfa le seguenti proprietà:
@@ -69,7 +69,7 @@ Esiste una funzione continua $\map{h_{\widetilde M}}{\widetilde M}{[0,1]}$ che s
 Per ogni $i\ge 0$, i moduli $C^i_c(\widetilde M)$ e $C^i_{b,c}(\widetilde M)$ sono relativamente iniettivi (rispettivamente come $\RR[\Gamma]$-modulo e come $\RR[\Gamma]$-modulo normato).
 \end{proposition}
 \begin{proof}
-Mostriamo innanzitutto che $C^i_c(\widetilde M)$ è un $\RR[\Gamma]$-modulo relativamente iniettivo. Siano $A$, $B$ due $\RR[\Gamma]$-moduli, $\map{\iota}{A}{B}$ una funzione $\Gamma$-lineare fortemente iniettiva con inversa sinistra $\RR$-lineare $\map{\sigma}{B}{A}$, $\map{\alpha}{A}{C^i_c(\widetilde M)}$ una funzione $\Gamma$-lineare.
+Mostriamo innanzitutto che $C^i_c(\widetilde M)$ è un $\RR[\Gamma]$-modulo relativamente iniettivo. Siano $A$, $B$ due $\RR[\Gamma]$-moduli, $\map{\iota}{A}{B}$ una funzione $\Gamma$-lineare fortemente iniettiva con inversa sinistra $\RR$-lineare $\map{\sigma}{B}{A}$, $\map{\alpha}{A}{C^i_c(\widetilde M)}$.
 \begin{diagram}
 0\rar&A\rar["\iota",swap]\dar{\alpha}&B\ar[dl,dashed,"\beta"]\lar["\sigma", bend right = 30,swap]\\
 &C^i_c(\widetilde M)
@@ -149,7 +149,7 @@ Infine, è evidente che per ogni $\varphi\in C^k_b(\widetilde M)$ vale $\norm{h^
 \subsection{Coomologia continua e coomologia singolare}
 
 \begin{lemma}\thlabel{continuous-gamma-invariant-cochains}
-Il morfismo di complessi $\map{p^\bul}{C^\bul(M)}{C^\bul(\widetilde M)}$ induce per restrizione isomorfismi \todo{Che norma c'è su $C^\bul_c(M)$?} isometrici di complessi
+Il morfismo di complessi $\map{p^\bul}{C^\bul(M)}{C^\bul(\widetilde M)}$ induce per restrizione isomorfismi isometrici di complessi
 \begin{align*}
 \map{p^\bul|_{C^\bul_c(M)}}{C^\bul_c(M)}{C^\bul_c(\widetilde M)^\Gamma},&&\map{p^\bul|_{C^\bul_{b,c}(M)}}{C^\bul_{b,c}(M)}{C^\bul_{b,c}(\widetilde M)^\Gamma},
 \end{align*}
@@ -167,7 +167,7 @@ Sia $M$ una varietà Riemanniana chiusa con curvatura non positiva. Allora le ap
 \begin{align*}
 \map{H^\bul(i^\bul)}{H^\bul_c(M)}{H^\bul(M)},&&\map{H^\bul_b(i^\bul_b)}{H^\bul_{b,c}(M)}{H^\bul_b(M)}
 \end{align*}
-sono isomorfismi isometrici. \todo{Di nuovo, che norma c'è su $H^\bul(M)$?}
+sono isomorfismi isometrici.
 \end{proposition}
 \begin{proof}
 In questa sezione (\thref{continuous-cochains-relatively-injective-module} e \thref{continuous-cochains-strong-resolution-R}) abbiamo mostrato che il complesso $C^\bul_c(\widetilde M)$ fornisce una risoluzione forte relativamente iniettiva di $\RR$. Sappiamo (\thref{?}) che lo stesso vale per il complesso $C^\bul(\widetilde M)$. Poiché l'inclusione $\map{j^\bul}{C^\bul_c(\widetilde M)}{C^\bul(\widetilde M)}$ è un morfismo di complessi che estende l'identità di $\RR$, dalla \thref{?} otteniamo che 

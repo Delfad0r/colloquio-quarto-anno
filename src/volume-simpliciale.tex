@@ -11,6 +11,7 @@ Una \defterm{seminorma} su un $\RR$-spazio vettoriale $V$ è una funzione $\map{
 \end{definition}
 Osserviamo che, contrariamente all'uso comune, ammettiamo anche $\infty$ come possibile valore assunto dalla seminorma. Una \defterm{norma} su $V$ è una seminorma che soddisfa inoltre le seguenti proprietà:
 \begin{enumerate}
+\setcounter{enumi}{2}
 \item $\norm{v}<\infty$ per ogni $v\in V$;
 \item se $v\in V\setminus\{0\}$ allora $\norm{v}>0$.
 \end{enumerate}
@@ -22,15 +23,15 @@ Dati una seminorma $\norm{-}$ su $V$ e un sottospazio vettoriale $W\subs V$, il 
 
 Se $V$ e $W$ sono $\RR$-spazi vettoriali seminormati, un'applicazione lineare $\map{f}{V}{W}$ si dice:
 \begin{itemize}
-\item $L$-Lipschitz se $\norm{f(v)}\le L\cdot\norm{v}$ per ogni $v\in V$;
-\item isometrica se $\norm{f(v)}=\norm{v}$ per ogni $v\in V$.
+\item \defterm{$L$-Lipschitz} se $\norm{f(v)}\le L\cdot\norm{v}$ per ogni $v\in V$;
+\item \defterm{isometrica} se $\norm{f(v)}=\norm{v}$ per ogni $v\in V$.
 \end{itemize}
-Osserviamo che un'isometria fra spazi seminormati non è necessariamente iniettiva. 
+Un'\defterm{immersione isometrica} è un'isometria fra spazi seminormati (osserviamo che un'isometria non è necessariamente iniettiva).
 
 Dati due spazi vettoriali seminormati $V_1$, $V_2$, un'applicazione lineare $L$-Lipschitz $\map{f}{V_1}{V_2}$ e due sottospazi $W_1\subs V_1$, $W_2\subs V_2$ tali che $f(W_1)\subs W_2$, si verifica facilmente che l'applicazione indotta $\map{\overline{f}}{V_1/W_1}{V_2/W_2}$ è ancora $L$-Lipschitz. Al contrario, la proprietà di essere isometrica non si conserva per passaggio al quoziente.
 
 \begin{definition}
-Un \defterm{complesso normato} è un complesso $(C_\bul,d_\bul)$ di $\RR$-spazi vettoriali in cui ogni $C_i$ è dotato di una seminorma.
+Un \defterm{complesso seminormato} è un complesso $(C_\bul,d_\bul)$ di $\RR$-spazi vettoriali in cui ogni $C_i$ è dotato di una seminorma.
 \end{definition}
 
 Dalla discussione precedente deriva che gli $\RR$-spazi vettoriali $H_i(C_\bul)$ ereditano in modo naturale una seminorma. Inoltre, un morfismo di complessi $L$-Lipschitz $\map{f_\bul}{C_\bul}{C'_\bul}$ induce applicazioni $L$-Lipschitz $\map{H_\bul(f_\bul)}{H_\bul(C_\bul)}{H_\bul(C'_\bul)}$ in omologia.
@@ -45,7 +46,7 @@ Definiamo inoltre la seminorma $\ell^\infty$ sul complesso delle cocatene singol
 \[
 \norm{\varphi}_\infty=\sup\{|\varphi(c)|:c\in C_n(X),\norm{c}_1\le 1\}.
 \]
-Di conseguenza i moduli di omologia e coomologia di $X$ ereditano, rispettivamente, le seminorme $\norm{-}_1$ e $\norm{-}_\infty$.
+Di conseguenza i moduli di omologia e coomologia di $X$ ereditano, rispettivamente, le seminorme $\norm{-}_1$ e $\norm{-}_\infty$. Osserviamo che, data una funzione continua $\map{f}{X}{Y}$ fra spazi topologici, i morfismi di complessi indotti $\map{f_\bul}{C_\bul(X)}{C_\bul(Y)}$ e $\map{f^\bul}{C^\bul(Y)}{C^\bul(X)}$ risultano $1$-Lipschitz rispetto alle seminorme appena definite; lo stesso vale dunque per le mappe indotte in (co)omologia. In particolare, segue che le equivalenze omotopiche inducono isomorfismi isometrici in (co)omologia.
 
 Per ogni $n\ge 0$ è ben definita l'applicazione bilineare
 \Map{\langle-,-\rangle}{H^n(X)\times H_n(X)}{\RR}{([\varphi],[c])}{\varphi(c),}
@@ -63,4 +64,51 @@ Una disuguaglianza segue immediatamente osservando che per ogni $c\in C_n(X)$, $
 \varphi(a)=\inf\{\norm{a-b}_1:b\in B_n(X)\}.
 \]
 Ma allora $\varphi(a)=\norm{[a]}_1$, da cui $\langle[\varphi],\alpha\rangle=\norm{\alpha}_1$.
+\end{proof}
+
+\subsection{Volume simpliciale}
+D'ora in poi i moduli di (co)catene e di (co)omologia saranno sempre muniti implicitamente delle seminorme $\ell^1$ e $\ell^\infty$ appena definite.
+
+Sia $M$ una $n$-varietà (topologica) chiusa (ossia compatta, connessa e senza bordo) e orientata. È ben noto che $H_n(M,\ZZ)\iso\ZZ$, e l'orientazione permette di distinguere un generatore $[M]_\ZZ\in H_n(M,\ZZ)$, detto \defterm{classe fondamentale} di $M$ a coefficienti interi. L'inclusione di complessi $C_\bul(M,\ZZ)\to C_\bul(M,\RR)$ induce una mappa in omologia $H_\bul(M,\ZZ)\to H_\bul(M,\RR)$; l'immagine di $[M]_\ZZ$ in $H_n(M,\RR)$, indicata con $[M]_\RR$ o semplicemente con $[M]$, è detta \defterm{classe fondamentale} di $M$ (a coefficienti reali).
+
+\begin{definition}
+Sia $M$ una $n$-varietà chiusa e orientata. Si definisce \defterm{volume simpliciale} di $M$ il numero reale $\norm{M}=\norm{[M]}_1$.
+\end{definition}
+Osserviamo che il volume simpliciale non dipende dalla scelta dell'orientazione, dunque è ben definito per qualunque varietà chiusa e orientabile. Se $M$ non è orientabile e $\widetilde M$ è il suo rivestimento doppio orientabile, si definisce $\norm{M}=\lVert\widetilde M\rVert/2$. Infine, se $M$ è compatta e non connessa, si definisce $\norm{M}$ come la somma dei volumi simpliciali delle sue componenti connesse.
+
+Rimandiamo alle sezioni successive il risultato principale di questa trattazione, che permetterà di calcolare il volume simpliciale di varietà Riemanniane piatte o iperboliche. Ci limitiamo per ora a enunciare alcune proprietà del volume simpliciale
+
+Osserviamo innanzitutto che il volume simpliciale dipende solo dal tipo di omotopia della varietà chiusa $M$, come si vede facilmente ricordando che le equivalenze omotopiche inducono isomorfismi in omologia.
+
+\begin{proposition}\thlabel{simplicial-volume-map-degree}
+Sia $\map{f}{M}{N}$ una funzione continua fra $n$-varietà orientate \todo{Si può parlare di grado fra varietà non orientate?}, e sia $d$ il grado di $f$. Allora $|d|\cdot\norm{N}\le\norm{M}$.
+\end{proposition}
+\begin{proof}
+Per definizione di grado, vale $H_n(f_\bul)([M])=d\cdot[N]$. Poiché $H_n(f_\bul)$ è $1$-Lipschitz, segue che $|d|\cdot\norm{[N]}_1\le\norm{[M]}_1$, ossia la tesi.
+\end{proof}
+
+\begin{corollary}
+Se una varietà orientabile $M$ ammette endomorfismi di grado almeno $2$, allora $\norm{M}=0$.
+\end{corollary}
+
+\begin{proposition}\thlabel{simplicial-volume-covering}
+Sia $\map{f}{M}{N}$ un rivestimento di grado $d$ fra varietà chiuse e orientabili. Allora $\norm{M}=d\cdot\norm{N}$.
+\end{proposition}
+\begin{proof}
+Se $\sum_{i\in I}a_is_i\in C_n(N)$ è un ciclo che rappresenta la classe fondamentale di $N$ in omologia, allora $\sum_{i\in I}\sum_{j=1}^da_i\widetilde{s}_{i,j}\in C_n(M)$ è un ciclo che rappresenta la classe fondamentale di $M$, dove $\widetilde{s}_{i,1},\ldots,\widetilde{s}_{i,d}$ sono i $d$ sollevamenti di $s_i$. Prendendo l'estremo inferiore delle norme $\ell^1$ al variare dei rappresentanti di $[N]$ otteniamo la disuguaglianza $d\norm{N}\ge\norm{M}$. Per l'altra, è sufficiente osservare che $f$ è una mappa di grado $d$, e applicare la \thref{simplicial-volume-map-degree}.
+\end{proof}
+
+Data una $n$-varietà chiusa orientata, esiste un'unica classe in coomologia $[M]^*\in H^n(M)$ tale che $\langle[M]^*,[M]\rangle=1$; $[M]^*$ è detta \defterm{coclasse fondamentale} di $M$.
+\begin{proposition}\thlabel{simplicial-volume-duality}
+Vale $\norm{M}=\norm{[M]^*}_\infty^{-1}$ (dove si intende che $\infty^{-1}=0$).
+\end{proposition}
+\begin{proof}
+Dalla \thref{kronecker-product-duality} sappiamo che
+\[
+\norm{M}=\max\{\langle\beta,[M]\rangle:\beta\in H^n(M),\norm{\beta}_\infty\le 1\}.
+\]
+Se $\norm{[M]^*}_\infty=\infty$ allora l'unico elemento di $H^n(M)$ di norma finita è $0$, dunque $\norm{M}=0$. Altrimenti è evidente che
+\[
+\norm{M}=\left\langle\frac{[M]^*}{\norm{[M]^*}_\infty},[M]\right\rangle=\frac{1}{\norm{[M]^*}_\infty}.\qedhere
+\]
 \end{proof}

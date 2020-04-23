@@ -1,3 +1,6 @@
+# Upload script
+upload.sh
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
