@@ -8,16 +8,16 @@ Il principio di proporzionalità di Gromov permette di calcolare immediatamente 
 Sia $M$ una varietà chiusa euclidea. Allora $\norm{M}=0$.
 \end{proposition}
 \begin{proof}
-Osserviamo che l'$n$-toro euclideo $(S^1)^n$ ha volume simpliciale nullo, poiché ammette endomorfismi di grado arbitrariamente alto. Poiché il rivestimento universale di ogni varietà euclidea è isometrico a $\RR^n$, dal \thref{gromov-proportionality-corollary} segue che
+Sia $n$ la dimensione di $M$. Osserviamo che l'$n$-toro euclideo $(S^1)^n$ ha volume simpliciale nullo, poiché ammette endomorfismi di grado arbitrariamente alto. Poiché il rivestimento universale di ogni varietà euclidea è isometrico a $\RR^n$, dal \thref{gromov-proportionality-corollary} segue che
 \[
 \frac{\norm{M}}{\Vol(M)}=\frac{\norm{(S^1)^n}}{\Vol((S^1)^n)}=0.\qedhere
 \]
 \end{proof}
 
 \subsection{Varietà iperboliche}
-Nel resto di questa sezione ci proponiamo di calcolare il rapporto $\norm{M}/\Vol(M)$ per varietà chiuse iperboliche (ossia localmente isometriche a $\HH^n$). Il \thref{gromov-proportionality-principle} garantisce che non dipende dalla varietà $M$, e fornisce un metodo per calcolarlo: è sufficiente conoscere la seminorma della coclasse $[\Vol_{\HH^n}]^G_c\in H^n(C^\bul_c(\HH^n)^G)$, dove $G$ denota il gruppo delle isometrie di $\HH^n$ che preservano l'orientazione.
+Nel resto di questa sezione ci proponiamo di calcolare il rapporto $\norm{M}/\Vol(M)$ per varietà chiuse iperboliche (ossia localmente isometriche a $\HH^n$). Il \thref{gromov-proportionality-principle} garantisce che tale rapporto non dipende dalla varietà $M$, e fornisce un metodo per calcolarlo: è sufficiente conoscere la seminorma della coclasse $[\Vol_{\HH^n}]^G_c\in H^n(C^\bul_c(\HH^n)^G)$, dove $G$ denota il gruppo delle isometrie di $\HH^n$ che preservano l'orientazione.
 
-Ricordiamo brevemente alcuni fatti riguardanti la geometria dei simplessi dritti in $\HH^n$. Un \defterm{$k$-simplesso (geodetico)} in $\overline{\HH^n}$ è l'inviluppo convesso di $k+1$ punti in $\HH^n$, detti \defterm{vertici}. Un simplesso si dice \defterm{finito} se tutti i suoi vertici appartengono a $\HH^n$, ideale se tutti i suoi vertici appartengono a $\del\HH^n$, e \defterm{regolare} e ogni permutazione dei suoi vertici si estende a un'isometria di $\HH^n$. I simplessi geodetici sono esattamente le immagini dei simplessi dritti (più precisamente, l'immagine di $[x_0,\ldots,x_k]$ è il simplesso geodetico di vertici $x_0,\ldots,x_k$). Per ogni $\ell>0$ esiste a meno di isometria un unico $n$-simplesso regolare finito di lato $\ell$, che denoteremo con $\tau_\ell$. Inoltre esiste a meno di isometria un unico $n$-simplesso regolare ideale, che denoteremo con $\tau_\infty$; definiamo infine $v_n=\Vol(\tau_\infty)$.
+Ricordiamo brevemente alcuni fatti riguardanti la geometria dei simplessi dritti in $\HH^n$. Nello spazio iperbolico sono ben definite le combinazioni convesse di punti, e dunque in particolare anche i sottoinsiemi convessi. Un \defterm{$k$-simplesso (geodetico)} in $\overline{\HH^n}$ è l'inviluppo convesso di $k+1$ punti in $\HH^n$, detti \defterm{vertici}. Un simplesso si dice \defterm{finito} se tutti i suoi vertici appartengono a $\HH^n$, ideale se tutti i suoi vertici appartengono a $\del\HH^n$, e \defterm{regolare} e ogni permutazione dei suoi vertici si estende a un'isometria di $\HH^n$. I simplessi geodetici sono esattamente le immagini dei simplessi dritti (più precisamente, l'immagine di $[x_0,\ldots,x_k]$ è il simplesso geodetico di vertici $x_0,\ldots,x_k$). Per ogni $\ell>0$ esiste a meno di isometria un unico $n$-simplesso regolare finito di lato $\ell$, che denoteremo con $\tau_\ell$. Inoltre esiste a meno di isometria un unico $n$-simplesso regolare ideale, che denoteremo con $\tau_\infty$; definiamo infine $v_n=\Vol(\tau_\infty)$.
 
 \begin{theorem}\thlabel{maximal-volume-of-hyperbolic-simplices}
 Sia $\Delta$ un $n$-simplesso geodetico in $\HH^n$. Allora $\Vol(\Delta)\le v_n$, e $\Vol(\Delta)=v_n$ se e solo se $\Delta$ è regolare ideale.
@@ -27,7 +27,17 @@ Sia $\Delta$ un $n$-simplesso geodetico in $\HH^n$. Allora $\Vol(\Delta)\le v_n$
 Vale $\lim\limits_{\ell\to\infty}\Vol(\tau_\ell)=v_n$.
 \end{theorem}\todo{Reference please.}
 
-\todo{Parlare delle cocatene alternanti.}
+Dato un simplesso geodetico con vertici $x_0,\ldots,x_k$, possiamo definire la sua \defterm{parametrizzazione baricentrica} come l'applicazione
+\uMap{\Delta^k}{\HH^n}{t_0e_0+\ldots+t_ke_k}{t_0x_0+\ldots+t_ke_k.}
+Si tratta ovviamente di una parametrizzazione liscia, e avrà un ruolo nella dimostrazione della proposizione seguente.
+
+Abbiamo prima bisogno, però, di introdurre il concetto di cocatena alternante. Dato uno spazio topologico $X$, una cocatena $\varphi\in C^k(X)$ si dice \defterm{alternante} se per ogni permutazione $\sigma\in\mathfrak{S}_{k+1}$ vale $\varphi({-}\circ\overline{\sigma})=\sign(\sigma)\cdot\varphi$, dove $\map{\overline\sigma}{\Delta^k}{\Delta^k}$ è l'affinità che induce la permutazione $\sigma$ sui vertici di $\Delta^k$. Denotiamo con $C^k_{\alt}(X)$ il sottospazio di $C^k(X)$ formato dalle $k$-cocatene alternanti. Si vede facilmente che $C^\bul_{\alt}(X)$ è un sottocomplesso di $C^\bul(X)$. Inoltre esiste un morfismo di complessi $1$-Lipschitz $\map{\alt^\bul}{C^\bul(X)}{C^\bul_{\alt}(X)}$ che a ogni cocatena $\varphi\in C^k(X)$ associa la cocatena alternante $\alt^k(\varphi)$ definita come
+\[
+\alt^k(\varphi)(s)=\frac{1}{(k+1)!}\sum_{\sigma\in\mathfrak{S}_{k+1}}\sign(\sigma)\cdot\varphi(s\circ\overline\sigma)
+\]
+sui simplessi singolari $s\in S_k(X)$. È evidente che $\alt^\bul$ è l'identità sulle cocatene alternanti.
+
+Possiamo infine calcolare esplicitamente il volume simpliciale delle varietà iperboliche.
 
 \begin{proposition}\thlabel{simplicial-volume-hyperbolic-manifold}
 Sia $M$ una $n$-varietà iperbolica chiusa. Allora
@@ -52,7 +62,10 @@ Osserviamo che la cocatena volume è alternante; inoltre il morfismo $1$-Lipschi
 &=\inf\left\{\norm{\Vol_{\HH^n}+\delta\alt^{n-1}(\varphi)}_\infty:\varphi\in C^{n-1}_c(\HH^n)^G\right\}\\
 &=\inf\left\{\norm{\Vol_{\HH^n}+\delta\varphi}_\infty:\varphi\in C^{n-1}_{c,\alt}(\HH^n)^G\right\}.
 \end{align*}
-Sia dunque $\varphi$ una $(n-1)$-cocatena continua alternante e $G$-invariante. Consideriamo un $n$-simplesso regolare finito $\tau_\ell$ e la sua parametrizzazione $s_\ell=[\tau_\ell(e_0),\ldots,\tau_\ell(e_n)]$; sia $\del_is_\ell=[\tau_\ell(e_0),\ldots,\widehat{\tau_\ell(e_i)},\ldots,\tau_\ell(e_n)]$ la $i$-esima faccia. Sia $\map{\sigma}{\Delta^{n-1}}{\Delta^{n-1}}$ una mappa affine che induce una permutazione dispari sui vertici di $\Delta^{n-1}$. Poiché $\tau_\ell$ è regolare, esiste un'isometria $g\in G$ di $\HH^n$ tale che $g\circ\del_i s_\ell=\del_i s_\ell\circ\sigma$; a meno di comporre con la riflessione lungo l'iperpiano che contiene l'immagine di $\del_i s_\ell$, possiamo supporre che $g$ preservi l'orientazione. \todo{Funziona?} Sfruttando il fatto che $\varphi$ è contemporaneamente $G$-invariante e alternante otteniamo
+
+Sia dunque $\varphi$ una $(n-1)$-cocatena continua alternante e $G$-invariante. Consideriamo un $n$-simplesso regolare finito $\tau_\ell$ e la sua parametrizzazione baricentrica $s_\ell$. Sia $\del_is_\ell$ la sua $i$-esima faccia; è evidente che $\del_is_\ell$ è a sua volta una parametrizzazione baricentrica. Sia $\map{\overline\sigma}{\Delta^{n-1}}{\Delta^{n-1}}$ una mappa affine che induce una permutazione dispari $\sigma\in\mathfrak{S}_n$ sui vertici di $\Delta^{n-1}$. Poiché $\tau_\ell$ è regolare, esiste un'isometria $g\in G$ di $\HH^n$ che induce la permutazione $\sigma$ sui vertici di $\del_is_\ell$; a meno di comporre con la riflessione lungo l'iperpiano che contiene l'immagine di $\del_is_\ell$, possiamo supporre che $g$ preservi l'orientazione. Dalla definizione di parametrizzazione baricentrica è evidente che $g\circ\del_is_\ell=\del_is_\ell\circ\overline{\sigma}$.
+
+Sfruttando il fatto che $\varphi$ è contemporaneamente $G$-invariante e alternante otteniamo
 \[
 \varphi(\del_i s_\ell)=\varphi(g\circ\del_i s_\ell)=\varphi(\del_i s_\ell\circ\sigma)=-\varphi(\del_i s_\ell),
 \]
@@ -76,8 +89,15 @@ Sia $\Sigma_g$ la superficie chiusa orientabile di genere $g$. Allora
 \]
 \end{corollary}
 \begin{proof}
-Per i casi $g=0,1$ basta osservare che $S^2$ e $S^1\times S^1$ ammettono endomorfismi di grado arbitrariamente alto, dunque hanno volume simpliciale nullo. Se invece $g\ge2$, è ben noto che $\Sigma_g$ ammette una metrica iperbolica. Ricordando che $v_2=\pi$ e $\Area(\Sigma_g)=-2\pi\chi(\Sigma_g)=4\pi g+4\pi$, dalla \thref{simplicial-volume-hyperbolic-manifold} segue che
+Per i casi $g=0,1$ basta osservare che $S^2$ e $S^1\times S^1$ ammettono endomorfismi di grado arbitrariamente alto, dunque hanno volume simpliciale nullo. Se invece $g\ge2$, è ben noto che $\Sigma_g$ ammette una metrica iperbolica. Ricordando che $v_2=\pi$ e che (per Gauss-Bonnet) $\Area(\Sigma_g)=-2\pi\chi(\Sigma_g)=4\pi g+4\pi$, dalla \thref{simplicial-volume-hyperbolic-manifold} segue che
 \[
 \norm{\Sigma_g}=\frac{\Area(\Sigma_g)}{v_2}=4g-4.\qedhere
 \]
+\end{proof}
+
+\begin{corollary}\thlabel{flat-xor-hyperbolic}
+Una varietà chiusa non può ammettere contemporaneamente una metrica euclidea e una iperbolica.
+\end{corollary}
+\begin{proof}
+Se una varietà chiusa $M$ ammette una metrica euclidea, allora per la \thref{simplicial-volume-flat-manifold} vale $\norm{M}=0$. Se $M$ ammette una metrica iperbolica, per la  \thref{simplicial-volume-hyperbolic-manifold} il suo volume simpliciale è strettamente positivo.
 \end{proof}
