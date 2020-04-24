@@ -152,7 +152,7 @@ dove abbiamo utilizzato il fatto che $\str_\bul$ è un morfismo di complessi e i
 Vale $[\Vol_M]=\Vol(M)\cdot[M]^*$.
 \end{lemma}
 \begin{proof}
-Osserviamo innanzitutto che $[\Vol_M]=\langle[\Vol_M],[M]\rangle\cdot[M]^*$. È ben noto che la classe fondamentale di $M$ ammette un rappresentante della forma $c=\sum s_i$, dove gli $s_i$ sono gli $n$-simplessi lisci e orientati positivamente di una triangolazione di $M$. Per la \thref{straightening-map-properties}, $c-\str_n(c)$ è bordo di una catena di simplessi lisci. Pertanto
+Osserviamo innanzitutto che $[\Vol_M]=\langle[\Vol_M],[M]\rangle\cdot[M]^*$. È ben noto che la classe fondamentale di $M$ ammette un rappresentante della forma $c=\sum s_i$, dove gli $s_i$ sono gli $n$-simplessi lisci e orientati positivamente di una triangolazione di $M$. Per la \thref{straightening-map-properties}, $c-\str_n(c)$ è bordo di una catena di $(n+1)$-simplessi lisci. Pertanto
 \[
 \langle[\Vol_M],[M]\rangle=\Vol_M(c)=\int_{\str_n(c)}\omega_M=\int_{c}\omega_M=\Vol(M),
 \]
@@ -179,7 +179,7 @@ Sia $M$ una varietà Riemanniana chiusa con curvatura non positiva. Allora
 \]
 \end{theorem}
 \begin{proof}
-Per come è definito il volume simpliciale per varietà non orientabili, possiamo supporre che $M$ sia orientata. Cominciamo osservando che tutte le mappe nel seguente diagramma sono isomorfismi o immersioni isometriche (rispettivamente per la \thref{continuous-cohomology-isomorphism}, il \thref{continuous-gamma-invariant-cochains} e il \thref{restriction-map-isometric-embedding}).
+Possiamo facilmente ridurci al caso in cui $M$ sia orientata. Cominciamo osservando che tutte le mappe nel seguente diagramma sono isomorfismi o immersioni isometriche (rispettivamente per il \thref{continuous-cohomology-isomorphism}, il \thref{continuous-gamma-invariant-cochains} e il \thref{restriction-map-isometric-embedding}).
 \begin{diagram}
 H^n(M)&H^n_c(M)\lar[swap,"H^n(i^\bul)","\iso"']\rar["H^n(p^\bul)","\iso"']&H^n(C^\bul_c(\widetilde M)^\Gamma)&H^n(C^\bul_c(\widetilde M)^G)\lar[swap,"\res^n"]
 \end{diagram}
