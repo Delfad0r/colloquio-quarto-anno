@@ -11,12 +11,12 @@ Sia $X$ uno spazio topologico.
 \end{diagram}
 \begin{block}{Norma $\ell^1$ su $C_n(X)$}
 \[
-\norm{\sum a_is_i}_1=\sum|a_i|
+\norm{\sum a_is_i}_1=\sum|a_i|\in(0,+\infty)
 \]
 \end{block}
 \begin{block}{Seminorma $\ell^1$ su $H_n(X)$}
 \[
-\norm{c}_1=\inf\left\{\norm{z}_1:z\in Z_n(X),[z]=c\right\}
+\norm{\alpha}_1=\inf\left\{\norm{c}_1:c\in Z_n(X),[c]=\alpha\right\}\in[0,+\infty]
 \]
 \end{block}
 \end{frame}
@@ -107,6 +107,53 @@ Sia $\Sigma_g$ la superficie chiusa orientabile di genere $g$.
 \[
 |\deg(f)|\le\frac{\norm{\Sigma_{g_1}}}{\norm{\Sigma_{g_2}}}=\frac{g_1-1}{g_2-1}.
 \]
+% See https://math.stackexchange.com/a/2312535/665961
 \end{itemize}
 \end{frame}
+
+\section{Dualità}
+\subsection{Norma e seminorma $\ell^\infty$}
+\begin{frame}{\secname}{\subsecname}
+Sia $X$ uno spazio topologico
+\begin{diagram}
+\ldots\&\lar["\delta^{n+1}"']C^{n+1}(X)\&\lar["\delta^n"']C^n(X)\&\lar["\delta^{n-1}"']C^{n-1}(X)\&\lar["\delta^{n-2}"']\ldots
+\end{diagram}
+\begin{block}{Norma $\ell^\infty$ su $C^n(X)$}
+\[
+\norm{\varphi}_\infty=\sup\left\{|\varphi(c)|:c\in C_n(X),\norm{c}_1\le 1\right\}\in(0,+\infty]
+\]
+\end{block}
+\begin{block}{Seminorma $\ell^\infty$ su $H^n(X)$}
+\[
+\norm{\beta}_\infty=\inf\left\{\norm{\varphi}_\infty:\varphi\in Z^n(X),[\varphi]=\beta\right\}\in[0,+\infty]
+\]
+\end{block}
+\end{frame}
+\subsection{Prodotto di Kronecker}
+\begin{frame}{\secname}{\subsecname}
+Il prodotto di Kronecker è l'applicazione bilineare
+\Map{\langle-,-\rangle}{H^n(X)\times H_n(X)}{\RR}{([\varphi],[z])}{\varphi(z).}
+
+\begin{block}{Proposizione}
+Sia $\alpha\in H^n(X)$. Allora
+\[
+\norm{\alpha}_1=\max\left\{\langle\beta,\alpha\rangle:\beta\in H^n(X),\norm{\beta}_\infty\le 1\right\}.
+\]
+\end{block}
+\end{frame}
+\subsection{Volume simpliciale}
+\begin{frame}{\secname}{\subsecname}
+Sia $M$ una $n$-varietà chiusa orientata, $[M]\in H_n(M)$ la sua classe fondamentale.
+\begin{itemize}
+\item Esiste un'unica classe $[M]^*\in H^n(M)$ tale che
+\[
+\langle[M]^*,[M]\rangle=1.
+\]
+\item Per dualità, vale
+\[
+\norm{M}=\norm{[M]}_1=\frac{1}{\norm{[M]^*}_\infty}.
+\]
+\end{itemize}
+\end{frame}
+\section{Coomologia di $\Gamma$-moduli}
 \end{document}
