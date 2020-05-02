@@ -81,7 +81,7 @@ Rimandiamo alle sezioni successive il risultato principale di questa trattazione
 Osserviamo innanzitutto che il volume simpliciale dipende solo dal tipo di omotopia della varietà chiusa $M$, come si vede facilmente ricordando che le equivalenze omotopiche inducono isomorfismi in omologia.
 
 \begin{proposition}\thlabel{simplicial-volume-map-degree}
-Sia $\map{f}{M}{N}$ una funzione continua fra $n$-varietà orientate \todo{Si può parlare di grado fra varietà non orientate?}, e sia $d$ il grado di $f$. Allora $|d|\cdot\norm{N}\le\norm{M}$.
+Sia $\map{f}{M}{N}$ una funzione continua fra $n$-varietà orientate, e sia $d$ il grado di $f$. Allora $|d|\cdot\norm{N}\le\norm{M}$.
 \end{proposition}
 \begin{proof}
 Per definizione di grado, vale $H_n(f_\bul)([M])=d\cdot[N]$. Poiché $H_n(f_\bul)$ è $1$-Lipschitz, segue che $|d|\cdot\norm{[N]}_1\le\norm{[M]}_1$, ossia la tesi.
@@ -92,13 +92,13 @@ Se una varietà orientabile $M$ ammette endomorfismi di grado almeno $2$, allora
 \end{corollary}
 
 \begin{proposition}\thlabel{simplicial-volume-covering}
-Sia $\map{f}{M}{N}$ un rivestimento di grado $d$ fra varietà chiuse e orientabili. Allora $\norm{M}=d\cdot\norm{N}$.
+Sia $\map{f}{M}{N}$ un rivestimento di grado $d$ fra varietà chiuse e orientabili. Allora $\norm{M}=d\cdot\norm{N}$. \todo{Vale anche per varietà non orientabili? Sicuramente $M$ sì, ma $N$?}
 \end{proposition}
 \begin{proof}
-Se $\sum_{i\in I}a_is_i\in C_n(N)$ è un ciclo che rappresenta la classe fondamentale di $N$ in omologia, allora $\sum_{i\in I}\sum_{j=1}^da_i\widetilde{s}_{i,j}\in C_n(M)$ è un ciclo che rappresenta la classe fondamentale di $M$, dove $\widetilde{s}_{i,1},\ldots,\widetilde{s}_{i,d}$ sono i $d$ sollevamenti di $s_i$. Prendendo l'estremo inferiore delle norme $\ell^1$ al variare dei rappresentanti di $[N]$ otteniamo la disuguaglianza $d\norm{N}\ge\norm{M}$. Per l'altra, è sufficiente osservare che $f$ è una mappa di grado $d$, e applicare la \thref{simplicial-volume-map-degree}.
+Se $\sum_{i\in I}a_is_i\in C_n(N)$ è un ciclo che rappresenta la classe fondamentale di $N$ in omologia, allora $\sum_{i\in I}\sum_{j=1}^da_i\widetilde{s}_{i,j}\in C_n(M)$ è un ciclo che rappresenta la classe fondamentale di $M$, dove $\widetilde{s}_{i,1},\ldots,\widetilde{s}_{i,d}$ sono i $d$ sollevamenti di $s_i$ \todo{Perché?}. Prendendo l'estremo inferiore delle norme $\ell^1$ al variare dei rappresentanti di $[N]$ otteniamo la disuguaglianza $d\norm{N}\ge\norm{M}$. Per l'altra, è sufficiente osservare che $f$ è una mappa di grado $d$, e applicare la \thref{simplicial-volume-map-degree}.
 \end{proof}
 
-Data una $n$-varietà chiusa orientata, esiste un'unica classe in coomologia $[M]^*\in H^n(M)$ tale che $\langle[M]^*,[M]\rangle=1$; $[M]^*$ è detta \defterm{coclasse fondamentale} di $M$.
+Data una $n$-varietà chiusa orientata, esiste un'unica classe in coomologia $[M]^*\in H^n(M)$ tale che $\langle[M]^*,[M]\rangle=1$ \todo{C'è un modo più diretto di vederlo rispetto a costruirla esplicitamente?}; $[M]^*$ è detta \defterm{coclasse fondamentale} di $M$.
 \begin{proposition}\thlabel{simplicial-volume-duality}
 Vale $\norm{M}=\norm{[M]^*}_\infty^{-1}$ (dove si intende che $\infty^{-1}=0$).
 \end{proposition}

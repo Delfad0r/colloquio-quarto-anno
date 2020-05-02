@@ -1,0 +1,112 @@
+\documentclass{beamer}
+\usepackage{mystyle}
+
+\begin{document}
+\section{Volume simpliciale}
+\subsection{Norma e seminorma $\ell^1$}
+\begin{frame}{\secname}{\subsecname}
+Sia $X$ uno spazio topologico.
+\begin{diagram}
+\ldots\rar{d_{n+2}}\&C_{n+1}(X)\rar{d_{n+1}}\&C_n(X)\rar{d_n}\&C_{n-1}(X)\rar{d_{n-1}}\&\ldots
+\end{diagram}
+\begin{block}{Norma $\ell^1$ su $C_n(X)$}
+\[
+\norm{\sum a_is_i}_1=\sum|a_i|
+\]
+\end{block}
+\begin{block}{Seminorma $\ell^1$ su $H_n(X)$}
+\[
+\norm{c}_1=\inf\left\{\norm{z}_1:z\in Z_n(X),[z]=c\right\}
+\]
+\end{block}
+\end{frame}
+\subsection{Classe fondamentale}
+\begin{frame}{\secname}{\subsecname}
+Sia $M$ una $n$-varietà chiusa orientata.
+\begin{itemize}
+\item $H_n(M,\ZZ)\iso\ZZ$.
+\item L'orientazione fissa un generatore $[M]_\ZZ\in H_n(M,\ZZ)$.
+\item Il cambio di coefficienti $C_\bul(M,\ZZ)\to C_\bul(M,\RR)$ induce
+\uMap{H_\bul(M\ZZ)}{H_\bul(M,\RR)}{[M]_\ZZ}{[M]_\RR=[M].}
+\end{itemize}
+\end{frame}
+\subsection{Definizione}
+\begin{frame}{\secname}{\subsecname}
+\begin{block}{Definizione}
+Sia $M$ una $n$-varietà chiusa orientata, $[M]\in H_n(M)$ la sua classe fondamentale. Si chiama \emph{volume simpliciale} il numero reale
+\[
+\norm{M}=\norm{[M]}_1.
+\]
+\end{block}
+\begin{itemize}
+\item Non dipende dall'orientazione $\implies$ è ben definito per varietà chiuse orientabili.
+\item Può essere nullo, anche se $[M]\neq 0$.
+\end{itemize}
+\end{frame}
+\subsection{Principio di proporzionalità}
+\begin{frame}{\secname}{\subsecname}
+\onslide<2>{Lo dimostreremo con un'ipotesi aggiuntiva.}
+\begin{block}{Teorema}
+Sia $M$ una varietà Riemanniana chiusa\only<2>{ con curvatura non positiva}.\\
+Allora il rapporto
+\[
+\frac{\norm{M}}{\Vol(M)}\onslide<2>{=\frac{1}{\norm{[\Vol_{\widetilde M}]^G_c}_\infty}}
+\]
+dipende solo dal tipo di isometria del rivestimento universale di $M$.
+\end{block}
+\end{frame}
+
+\section{Applicazioni}
+\subsection{Limitazione del grado}
+\begin{frame}{\secname}{\subsecname}
+\begin{block}{Proposizione}
+Siano $M$, $N$ $n$-varietà chiuse orientate, $\map{f}{M}{N}$ una funzione continua di grado $d$. Allora
+\[
+|d|\cdot\norm{N}\le\norm{M}.
+\]
+\end{block}
+\begin{block}{Corollario}
+Sia $\map{f}{M}{M}$ di grado $d\ge 2$. Allora $\norm{M}=0$.
+\end{block}
+\end{frame}
+\subsection{Varietà euclidee}
+\begin{frame}{\secname}{\subsecname}
+\begin{itemize}
+\item L'$n$-toro $(S^1)^n$ ammette endomorfismi di grado arbitrariamente alto; di conseguenza, $\norm{(S^1)^n}=0$.
+\item $(S^1)^n$ ammette una metrica piatta, con rivestimento universale isometrico a $\RR^n$.
+\item Data una qualunque $n$-varietà chiusa euclidea $M$, vale
+\[
+\frac{\norm{M}}{\Vol(M)}=\frac{\norm{(S^1)^n}}{\Vol((S^1)^n)}=0
+\]
+da cui $\norm{M}=0$.
+\end{itemize}
+\end{frame}
+\subsection{Varietà iperboliche}
+\begin{frame}{\secname}{\subsecname}
+\begin{block}{Teorema}
+Sia $M$ una $n$-varietà chiusa iperbolica. Allora
+\[
+\norm{M}=\frac{\Vol(M)}{v_n},
+\]
+dove $v_n$ è il volume dell'$n$-simplesso ideale regolare in $\HH^n$.
+\end{block}
+\begin{block}{Corollario}
+Una varietà chiusa $M$ non può ammettere contemporaneamente una metrica euclidea e una iperbolica.
+\end{block}
+\end{frame}
+\subsection{Mappe fra superfici}
+\begin{frame}{\secname}{\subsecname}
+Sia $\Sigma_g$ la superficie chiusa orientabile di genere $g$.
+\begin{itemize}
+\item Per $g\le 1$ vale $\norm{\Sigma_g}=0$
+\item Per $g\ge 2$, $\Sigma_g$ ammette una metrica iperbolica.
+\[
+\norm{\Sigma_g}=\frac{\Vol(\Sigma_g)}{v_2}=-\frac{2\pi\chi(\Sigma_g)}{\pi}=4g-4.
+\]
+\item Sia $\map{f}{\Sigma_{g_1}}{\Sigma_{g_2}}$, con $g_1\ge 1$, $g_2\ge 2$. Allora
+\[
+|\deg(f)|\le\frac{\norm{\Sigma_{g_1}}}{\norm{\Sigma_{g_2}}}=\frac{g_1-1}{g_2-1}.
+\]
+\end{itemize}
+\end{frame}
+\end{document}

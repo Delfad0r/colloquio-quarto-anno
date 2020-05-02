@@ -1,0 +1,79 @@
+\ProvidesPackage{mystyle}
+
+% Math packages
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{thmtools}
+\usepackage{thm-restate}
+
+% Diagrams
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\tikzset{
+    invisible/.style={opacity=0},
+    visible on/.style={alt={#1{}{invisible}}},
+    alt/.code args={<#1>#2#3}{%
+      \alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}}%
+  }
+}
+\newenvironment*{diagram}[1][]{\begin{equation*}\begin{tikzcd}[ampersand replacement=\&,#1]}{\end{tikzcd}\end{equation*}\ignorespacesafterend}
+
+% Prescript
+\usepackage{tensor}
+\let\prepost\tensor
+
+% Operators
+\newcommand*{\dirsum}{\mathbin{\oplus}}
+\newcommand*{\Dirsum}{\bigoplus}
+\renewcommand*{\tensor}{\mathbin{\otimes}}
+\newcommand*{\cupp}{\mathbin{\smile}}
+\newcommand*{\norm}[1]{\left\lVert #1\right\rVert}
+
+% Mathbb
+\newcommand*{\NN}{\mathbb{N}}
+\newcommand*{\ZZ}{\mathbb{Z}}
+\newcommand*{\RR}{\mathbb{R}}
+\newcommand*{\HH}{\mathbb{H}}
+
+% Relations
+\newcommand*{\subs}{\subseteq}
+\newcommand*{\sups}{\supseteq}
+\newcommand*{\iso}{\simeq}
+
+% Other aliases
+\newcommand*{\phantomop}{\phantom{{}={}}}
+\newcommand*{\bul}{\bullet}
+\newcommand*{\del}{\partial}
+
+% Maps
+\newcommand*{\umap}[2]{#1\mathchoice{\longrightarrow}{\to}{\to}{\to}#2}
+\newcommand*{\map}[3]{#1\colon#2\mathchoice{\longrightarrow}{\to}{\to}{\to}#3}
+\newcommand*{\Map}[5]{%
+\begin{alignat*}{2}
+#1:\;&&#2&\longrightarrow#3\\
+&&#4&\longmapsto#5
+\end{alignat*}
+}
+\newcommand*{\uMap}[4]{%
+\begin{align*}
+#1&\longrightarrow#2\\
+#3&\longmapsto#4
+\end{align*}
+}
+
+% DeclareMathOperator
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\res}{res}
+\DeclareMathOperator{\trans}{trans}
+\DeclareMathOperator{\str}{str}
+\DeclareMathOperator{\Vol}{Vol}
+\DeclareMathOperator{\Area}{Area}
+\DeclareMathOperator{\alternating}{alt}
+\DeclareMathOperator{\sign}{sign}
+\newcommand*{\tstr}{\widetilde{\str}}
