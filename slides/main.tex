@@ -27,7 +27,7 @@ Sia $M$ una $n$-varietà chiusa orientata.
 \item $H_n(M,\ZZ)\iso\ZZ$.
 \item L'orientazione fissa un generatore $[M]_\ZZ\in H_n(M,\ZZ)$.
 \item Il cambio di coefficienti $C_\bul(M,\ZZ)\to C_\bul(M,\RR)$ induce
-\uMap{H_\bul(M\ZZ)}{H_\bul(M,\RR)}{[M]_\ZZ}{[M]_\RR=[M].}
+\uMap{H_\bul(M,\ZZ)}{H_\bul(M,\RR)}{[M]_\ZZ}{[M]_\RR=[M].}
 \end{itemize}
 \end{frame}
 \subsection{Definizione}
@@ -135,7 +135,7 @@ Il prodotto di Kronecker è l'applicazione bilineare
 \Map{\langle-,-\rangle}{H^n(X)\times H_n(X)}{\RR}{([\varphi],[z])}{\varphi(z).}
 
 \begin{block}{Proposizione}
-Sia $\alpha\in H^n(X)$. Allora
+Sia $\alpha\in H_n(X)$. Allora
 \[
 \norm{\alpha}_1=\max\left\{\langle\beta,\alpha\rangle:\beta\in H^n(X),\norm{\beta}_\infty\le 1\right\}.
 \]
@@ -144,6 +144,7 @@ Sia $\alpha\in H^n(X)$. Allora
 \subsection{Volume simpliciale}
 \begin{frame}{\secname}{\subsecname}
 Sia $M$ una $n$-varietà chiusa orientata, $[M]\in H_n(M)$ la sua classe fondamentale.
+
 \begin{itemize}
 \item Esiste un'unica classe $[M]^*\in H^n(M)$ tale che
 \[
@@ -155,5 +156,91 @@ Sia $M$ una $n$-varietà chiusa orientata, $[M]\in H_n(M)$ la sua classe fondame
 \]
 \end{itemize}
 \end{frame}
-\section{Coomologia di $\Gamma$-moduli}
+
+\section{Rivestimento universale}
+\subsection{Coomologia $\Gamma$-invariante}
+\begin{frame}{\secname}{\subsecname}
+\begin{itemize}
+\item Sia $M$ una $n$-varietà Riemanniana chiusa e orientata con curvatura non positiva.
+\item Sia $\map{p}{\widetilde M}{M}$ il rivestimento universale.
+\item Sia $\Gamma=\pi_1(M)$ identificato con $\Aut(\widetilde M,p)$.
+\end{itemize}
+
+$\Gamma$ agisce sul complesso di cocatene $C^\bul(\widetilde M)$.
+\begin{block}{Proposizione}
+Il rivestimento $p$ induce isomorfismi isometrici
+\begin{alignat*}{2}
+p^\bul\colon&&C^\bul(M)&\longrightarrow C^\bul(\widetilde M)^\Gamma,\\
+H^\bul(p^\bul)\colon&&H^\bul(M)&\longrightarrow H^\bul(C^\bul(\widetilde M)^\Gamma).
+\end{alignat*}
+\end{block}
+\end{frame}
+\subsection{Curvatura non negativa}
+\begin{frame}{\secname}{\subsecname}
+\begin{block}{Teorema (Cartan-Hadamard)}
+La mappa esponenziale
+\[
+\map{\exp_p}{T_p\widetilde M}{\widetilde M}
+\]
+è un diffeomorfismo
+\end{block}
+\begin{itemize}
+\item $\widetilde M$ è diffeomorfo a $\RR^n$.
+\item Per ogni $x,y\in\widetilde M$ esiste un'unica geodetica che li collega.
+\item Le parametrizzazioni a velocità costante delle geodetiche dipendono in modo liscio dagli estremi.
+\end{itemize}
+\end{frame}
+\subsection{Simplessi dritti}
+\begin{frame}{\secname}{\subsecname}
+Il teorema di Cartan-Hadamard permette di definire il \emph{simplesso dritto} di vertici $x_0,\ldots,x_k\in\widetilde M$.
+
+\begin{minipage}[t]{.6\textwidth}
+\begin{itemize}
+\item $k=0\leadsto$ $[x_0]$ è lo $0$-simplesso avente immagine $x_0$.
+\item $k>0\leadsto$ $[x_0,\ldots,x_k]$ è il ``cono geodetico'' di vertice $x_k$ e base $[x_0,\ldots,x_{k-1}]$.
+\end{itemize}
+\end{minipage}
+\begin{minipage}[t]{.35\textwidth}
+\begin{itemize}
+\item \huge Inserire figura
+\end{itemize}
+\end{minipage}
+\end{frame}
+\subsection{Mappa di raddrizzamento}
+\begin{frame}{\secname}{\subsecname}
+% Definire direttamente str senza tilde
+Per ogni $k$-simplesso singolare $\map{s}{\Delta^k}{\widetilde M}$ definiamo il simplesso
+\[
+\tstr_k(s)=[s(e_0),\ldots,s(e_k)].
+\]
+
+\begin{minipage}[t]{.6\textwidth}
+\begin{itemize}
+\item $\map{\tstr_\bul}{C_\bul(\widetilde M)}{C_\bul(\widetilde M)}$ è un morfismo di complessi $\Gamma$-equivariante.
+\item Induce $\map{\str_\bul}{C_\bul(M)}{C_\bul(M)}$.
+\item Entrambi i morfismi sono omotopi all'identità.
+\end{itemize}
+\end{minipage}
+\begin{minipage}[t]{.35\textwidth}
+\begin{itemize}
+\item\huge Inserire figura
+\end{itemize}
+\end{minipage}
+\end{frame}
+\subsection*{Cociclo volume}
+\begin{frame}{\secname}{\subsecname}
+Per ogni $n$-simplesso $\map{s}{\Delta^n}{M}$ definiamo
+\[
+\Vol_M(s)=\int_{\str_n(s)}\omega_M,
+\]
+dove $\omega_M$ è la forma volume.
+\begin{itemize}
+\item $\Vol_M(d_{n+1}(s))=0$, dunque è un cociclo.
+\item Definisce una classe $[\Vol_M]\in H^n(M)$ in coomologia.
+\item Vale 
+\[
+[\Vol_M]=\Vol(M)\cdot[M]^*.
+\]
+\end{itemize}
+\end{frame}
 \end{document}
