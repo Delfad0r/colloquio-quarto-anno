@@ -16,7 +16,7 @@ Sia $X$ uno spazio topologico.
 \end{block}
 \begin{block}{Seminorma $\ell^1$ su $H_n(X)$}
 \[
-\norm{\alpha}_1=\inf\left\{\norm{c}_1:c\in Z_n(X),[c]=\alpha\right\}\in[0,+\infty]
+\norm{\alpha}_1=\inf\left\{\norm{c}_1:c\in Z_n(X),[c]=\alpha\right\}\in[0,+\infty)
 \]
 \end{block}
 \end{frame}
@@ -111,7 +111,7 @@ Sia $\Sigma_g$ la superficie chiusa orientabile di genere $g$.
 \end{itemize}
 \end{frame}
 
-\section{Dualità}
+\section{Principio di proporzionalità}
 \subsection{Norma e seminorma $\ell^\infty$}
 \begin{frame}{\secname}{\subsecname}
 Sia $X$ uno spazio topologico
@@ -129,7 +129,7 @@ Sia $X$ uno spazio topologico
 \]
 \end{block}
 \end{frame}
-\subsection{Prodotto di Kronecker}
+\subsection{Dualità}
 \begin{frame}{\secname}{\subsecname}
 Il prodotto di Kronecker è l'applicazione bilineare
 \Map{\langle-,-\rangle}{H^n(X)\times H_n(X)}{\RR}{([\varphi],[z])}{\varphi(z).}
@@ -141,7 +141,7 @@ Sia $\alpha\in H_n(X)$. Allora
 \]
 \end{block}
 \end{frame}
-\subsection{Volume simpliciale}
+\subsection{Coclasse fondamentale}
 \begin{frame}{\secname}{\subsecname}
 Sia $M$ una $n$-varietà chiusa orientata, $[M]\in H_n(M)$ la sua classe fondamentale.
 
@@ -157,7 +157,6 @@ Sia $M$ una $n$-varietà chiusa orientata, $[M]\in H_n(M)$ la sua classe fondame
 \end{itemize}
 \end{frame}
 
-\section{Rivestimento universale}
 \subsection{Coomologia $\Gamma$-invariante}
 \begin{frame}{\secname}{\subsecname}
 \begin{itemize}
@@ -190,7 +189,7 @@ La mappa esponenziale
 \item Le parametrizzazioni a velocità costante delle geodetiche dipendono in modo liscio dagli estremi.
 \end{itemize}
 \end{frame}
-\subsection{Simplessi dritti}
+\subsection{Mappa di raddrizzamento}
 \begin{frame}{\secname}{\subsecname}
 Il teorema di Cartan-Hadamard permette di definire il \emph{simplesso dritto} di vertici $x_0,\ldots,x_k\in\widetilde M$.
 
@@ -206,7 +205,6 @@ Il teorema di Cartan-Hadamard permette di definire il \emph{simplesso dritto} di
 \end{itemize}
 \end{minipage}
 \end{frame}
-\subsection{Mappa di raddrizzamento}
 \begin{frame}{\secname}{\subsecname}
 % Definire direttamente str senza tilde
 Per ogni $k$-simplesso singolare $\map{s}{\Delta^k}{\widetilde M}$ definiamo il simplesso
@@ -223,7 +221,7 @@ Per ogni $k$-simplesso singolare $\map{s}{\Delta^k}{\widetilde M}$ definiamo il 
 \end{minipage}
 \begin{minipage}[t]{.35\textwidth}
 \begin{itemize}
-\item\huge Inserire figura
+\item\huge RIFARE
 \end{itemize}
 \end{minipage}
 \end{frame}
@@ -242,5 +240,103 @@ dove $\omega_M$ è la forma volume.
 [\Vol_M]=\Vol(M)\cdot[M]^*.
 \]
 \end{itemize}
+\end{frame}
+\begin{frame}{\secname}{\subsecname}
+\begin{diagram}[row sep=tiny,remember picture]
+C^\bul(M)
+\rar["p^\bul","\iso"']\&
+C^\bul(\widetilde M)^\Gamma\&
+{\visible<9->{\lar[visible on=<9->,hook']C^\bul(\widetilde M)^G}}\\
+{\visible<3->{\Vol_M}}
+\rar[visible on=<5->,mapsto]
+\&
+|[alias=VolMtilde]|{\visible<5->{\Vol_{\widetilde M}}}
+\&
+{\visible<9->{\lar[visible on=<9->,equal]\Vol_{\widetilde M}}}
+\\\phantom{.}\\\phantom{.}\\
+{\visible<2->{H^\bul(M)}}
+\rar[visible on=<2->,"\iso"]
+\&
+{\visible<2->{H^\bul(C^\bul(\widetilde M)^\Gamma)}}
+\&
+{\visible<10->{\lar[visible on=<10->,"\alt<11->{?}{}"']H^\bul(C^\bul(\widetilde M)^G)}}
+\\
+{\visible<4->{\left[\Vol_M\right]}}
+\rar[visible on=<7->,mapsto]
+\&
+{\visible<7->{\left[\Vol_{\widetilde M}\right]^\Gamma}}
+\&
+{\visible<10->{\lar[visible on=<10->,mapsto]\left[\Vol_{\widetilde M}\right]^G}}
+\end{diagram}
+\begin{center}
+\begin{tikzpicture}[remember picture]
+\node[black!60] (testtest) {$\displaystyle{\visible<6->{\Vol_{\widetilde M}(s)=\int_{\str_n(s)}\omega_{\widetilde M}}}{\visible<8->{\implies\text{è $G$-invariante}}}$};
+\end{tikzpicture}
+\end{center}
+\begin{onslide}<6->
+\begin{tikzpicture}[overlay,remember picture]
+\draw[-latex,gray!50] (VolMtilde) to[out=-170,in=180,out looseness=2,in looseness=1.5] (testtest.west);
+\end{tikzpicture}
+\end{onslide}
+\end{frame}
+\subsection*{Coomologia continua}
+\begin{frame}{\secname}{\subsecname}
+Sia $S_k(M)=\{\Delta^k\to M\}$ lo spazio dei $k$-simplessi singolari, munito della topologia compatta-aperta.
+\begin{block}{Definizione}
+Una cocatena $\varphi\in C^k(M)$ è \emph{continua} se la restrizione
+\[
+\map{\varphi}{S_k(M)}{\RR}
+\]
+è continua.
+\end{block}
+\begin{itemize}
+\item $C^\bul_c(M)$ è un sottocomplesso di $C^\bul(M)$.
+\item Si pone $H^\bul_c(M)=H^\bul(C^\bul_c(M))$.
+\end{itemize}
+\end{frame}
+\begin{frame}{\secname}{\subsecname}
+\begin{block}{Proposizione}
+L'inclusione $C^\bul_c(M)\hookrightarrow C^\bul(M)$ induce un isomorfismo isometrico
+\[
+H^\bul_c(M)\iso H^\bul(M).
+\]
+\end{block}
+\begin{block}{Proposizione}
+L'inclusione $C^\bul_c(\widetilde M)^G\hookrightarrow C^\bul_c(\widetilde M)^\Gamma$ induce un'immersione isometrica
+\[
+H^\bul(C^\bul_c(\widetilde M)^G)\longhookrightarrow H^\bul(C^\bul_c(\widetilde M)^\Gamma).
+\]
+\end{block}
+\end{frame}
+\subsection{Isomorfismi isometrici}
+\begin{frame}{\secname}{\subsecname}
+\begin{diagram}[row sep=tiny]
+\only<1-5>{
+{\visible<1-4>{C^\bul(M)}}\&
+{\visible<2-4>{\lar[visible on=<2-4>,hook']C^\bul_c(M)\rar[visible on=<3-4>,"p^\bul"]}}\&
+{\visible<3-4>{C^\bul_c(\widetilde M)^\Gamma}}\&
+{\visible<4>{\lar[visible on=<4>,hook']C^\bul_c(\widetilde M)^G}}\\
+{\visible<1-4>{\Vol_M\rar[visible on=<2-4>,equal]}}\&
+{\visible<2-4>{\Vol_M\rar[visible on=<3-4>,mapsto]}}\&
+{\visible<3-4>{\Vol_{\widetilde M}\rar[visible on=<4>,equal]}}\&
+{\visible<4>{\Vol_{\widetilde M}}}\\
+\phantom{.}\\\phantom{.}\\}
+H^\bul(M)\&
+{\visible<2->{\lar[visible on=<2->,"\iso"']H^\bul_c(M)\rar[visible on=<3->,"\iso"]}}\&
+{\visible<3->{H^\bul(C^\bul_c(\widetilde M)^\Gamma)}}\&
+{\visible<4->{\lar[visible on=<4->,hook']H^\bul(C^\bul_c(\widetilde M)^G)}}\\
+\left[\Vol_M\right]\&
+{\visible<2->{\lar[visible on=<2->,mapsto]\left[\Vol_M\right]_c\rar[visible on=<3->,mapsto]}}\&
+{\visible<3->{\left[\Vol_{\widetilde M}\right]^\Gamma_c}}\&
+{\visible<4->{\lar[visible on=<4->,mapsto]\left[\Vol_{\widetilde M}\right]^G_c}}
+\end{diagram}
+
+
+\begin{onslide}<7->
+Possiamo infine calcolare:
+\[
+\onslide<8->{\norm{M}=\frac{1}{\norm{[M]^*}_\infty}}\onslide<9->{=\frac{\Vol(M)}{\norm{[\Vol_M]}_\infty}}\onslide<10->{=\frac{\Vol(M)}{\norm{[\Vol_{\widetilde M}]^G_c}_\infty}.}
+\]
+\end{onslide}
 \end{frame}
 \end{document}
