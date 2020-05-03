@@ -270,7 +270,7 @@ C^\bul(\widetilde M)^\Gamma\&
 \end{diagram}
 \begin{center}
 \begin{tikzpicture}[remember picture]
-\node[black!60] (testtest) {$\displaystyle{\visible<6->{\Vol_{\widetilde M}(s)=\int_{\str_n(s)}\omega_{\widetilde M}}}{\visible<8->{\implies\text{è $G$-invariante}}}$};
+\node[gray] (testtest) {$\displaystyle{\visible<6->{\Vol_{\widetilde M}(s)=\int_{\str_n(s)}\omega_{\widetilde M}}}{\visible<8->{\implies\text{è $G$-invariante}}}$};
 \end{tikzpicture}
 \end{center}
 \begin{onslide}<6->
@@ -328,15 +328,23 @@ H^\bul(M)\&
 \left[\Vol_M\right]\&
 {\visible<2->{\lar[visible on=<2->,mapsto]\left[\Vol_M\right]_c\rar[visible on=<3->,mapsto]}}\&
 {\visible<3->{\left[\Vol_{\widetilde M}\right]^\Gamma_c}}\&
-{\visible<4->{\lar[visible on=<4->,mapsto]\left[\Vol_{\widetilde M}\right]^G_c}}
+{\visible<4->{\lar[visible on=<4->,mapsto]\left[\Vol_{\widetilde M}\right]^G_c}}\\\phantom{.}
 \end{diagram}
-
-
 \begin{onslide}<7->
 Possiamo infine calcolare:
+\vspace{-.5cm}
+\begin{center}
 \[
-\onslide<8->{\norm{M}=\frac{1}{\norm{[M]^*}_\infty}}\onslide<9->{=\frac{\Vol(M)}{\norm{[\Vol_M]}_\infty}}\onslide<10->{=\frac{\Vol(M)}{\norm{[\Vol_{\widetilde M}]^G_c}_\infty}.}
+\onslide<8->{\norm{M}=\frac{1}{\norm{[M]^*}_\infty}}\onslide<9->{\underset{\tikzmark{equal}}{=}\frac{\Vol(M)}{\norm{[\Vol_M]}_\infty}}\onslide<10->{=\frac{\Vol(M)}{\norm{[\Vol_{\widetilde M}]^G_c}_\infty}.}
 \]
+\begin{tikzpicture}[remember picture,overlay,visible on=<9>]
+\node[gray] (expl) at ([shift={(0,-1cm)}]pic cs:equal) {$[\Vol_M]=\Vol(M)\cdot[M]^*$};
+\draw[-latex,gray!50] (expl) to (pic cs:equal);
+\end{tikzpicture}
+%\begin{tikzpicture}
+%\node {$\displaystyle\onslide<8->{\norm{M}=\frac{1}{\norm{[M]^*}_\infty}}\onslide<9->=\frac{\Vol(M)}{\norm{[\Vol_M]}_\infty}}\onslide<10->{=\frac{\Vol(M)}{\norm{[\Vol_{\widetilde M}]^G_c}_\infty}.}$};
+%\end{tikzpicture}
+\end{center}
 \end{onslide}
 \end{frame}
 \end{document}
