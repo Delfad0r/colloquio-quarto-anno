@@ -94,21 +94,38 @@ dove $v_n$ è il volume dell'$n$-simplesso ideale regolare in $\HH^n$.
 Una varietà chiusa $M$ non può ammettere contemporaneamente una metrica euclidea e una iperbolica.
 \end{block}
 \end{frame}
-\subsection{Mappe fra superfici}
+\subsection{Superfici chiuse}
 \begin{frame}{\secname}{\subsecname}
 Sia $\Sigma_g$ la superficie chiusa orientabile di genere $g$.
 \begin{itemize}
-\item Per $g\le 1$ vale $\norm{\Sigma_g}=0$
+\item Per $g\le 1$ vale $\norm{\Sigma_g}=0$. {\color{gray}$\Sigma_0=S^2$, $\Sigma_1=S^1\times S^1$};
 \item Per $g\ge 2$, $\Sigma_g$ ammette una metrica iperbolica.
+
+\vspace{1cm}
 \[
-\norm{\Sigma_g}=\frac{\Vol(\Sigma_g)}{v_2}=-\frac{2\pi\chi(\Sigma_g)}{\pi}=4g-4.
+\norm{\Sigma_g}=\frac{\tikzmarknode[inner sep=3pt]{closed surfaces num}{\Vol(\Sigma_g)}}{\tikzmarknode[inner sep=3pt]{closed surfaces den}{v_2}}=-\frac{2\pi\chi(\Sigma_g)}{\pi}=4g-4
 \]
-\item Sia $\map{f}{\Sigma_{g_1}}{\Sigma_{g_2}}$, con $g_1\ge 1$, $g_2\ge 2$. Allora
+\end{itemize}
+\begin{tikzpicture}[remember picture,overlay]
+\node[gray,anchor=west] (gauss-bonnet) at ($(closed surfaces num)+(1cm,1cm)$) {Gauss-Bonnet};
+\node[gray,anchor=west,align=left] (ideal triangle) at ($(closed surfaces den)+(1cm,-1cm)$) {area del triangolo\\ideale in $\HH^2$};
+\draw[gray!50,-latex] (closed surfaces num.north) to[bend left] (gauss-bonnet.west);
+\draw[gray!50,-latex] (closed surfaces den.south) to[bend right] (ideal triangle.west);
+\end{tikzpicture}
+\end{frame}
+\subsection{Mappe fra varietà iperboliche}
+\begin{frame}{\secname}{\subsecname}
+Se $M$, $N$ sono varietà iperboliche e $\map{f}{M}{N}$ una funzione continua, allora
 \[
-|\deg(f)|\le\frac{\norm{\Sigma_{g_1}}}{\norm{\Sigma_{g_2}}}=\frac{g_1-1}{g_2-1}.
+|\deg(f)|\le\frac{\norm{M}}{\norm{N}}=\frac{\Vol(M)}{\Vol(N)}.
+\]
+\begin{block}{Mappe fra superfici}
+Sia $\map{f}{\Sigma_{g_1}}{\Sigma_{g_2}}$ con $g_1\ge1$, $g_2\ge 2$. Allora
+\[
+|\deg(f)|\le\frac{g_1-1}{g_2-1}.
 \]
 % See https://math.stackexchange.com/a/2312535/665961
-\end{itemize}
+\end{block}
 \end{frame}
 
 \section{Principio di proporzionalità}
@@ -207,17 +224,18 @@ Il teorema di Cartan-Hadamard permette di definire il \emph{simplesso dritto} di
 \coordinate (x2) at (4,5);
 \coordinate (x3) at (2,8);
 \coordinate (p) at (4,2);
-\fill[style between={1}{3}{},style between={3}{4}{dashed},green!40!black,fill=green,fill opacity=.3]
+\fill[style between={1}{3}{},style between={3}{4}{dashed},green!40!black,fill=green!70!black,fill opacity=.3]
 (x0)  .. controls ++(20:3) and ++(170:3) ..
 (x1) .. controls ++(160:2) and ++(-60:2) ..
 (x2) .. controls ++(-100:2) and ++(30:2) .. cycle;
-\begin{scope}[decoration={markings,mark=between positions .1 and 1 step .2 with {\arrow{stealth}}}]
+\begin{scope}[decoration={markings,mark=between positions .3 and 1 step .2 with {\arrow{stealth}}}]
 \draw (x3) .. controls ++(-90:3) and ++(60:3) .. (x0);
 \draw (x3) .. controls ++(-80:4) and ++(165:4) .. (x1);
 \draw (x3) .. controls ++(-75:1) and ++(150:1) .. (x2);
 \draw[postaction={decorate}] (x3) .. controls ++ (-85:2) and ++(130:2) .. (p);
 \end{scope}
-\foreach \c in {x0,x1,x2,x3,p} {\fill (\c) circle[radius=4pt];}
+\foreach \c in {x0,x1,x2,x3} {\fill (\c) circle[radius=3pt];}
+\fill[green!40!black] (p) circle[radius=3pt];
 \foreach \i/\pos in {0/below left,1/right,2/above right,3/above} {\node[\pos] at (x\i) {$x_{\i}$};}
 \end{tikzpicture}
 \end{figure}
@@ -287,17 +305,12 @@ C^\bul(\widetilde M)^\Gamma\&
 \&
 {\visible<10->{\lar[visible on=<10->,mapsto]\left[\Vol_{\widetilde M}\right]^G}}
 \end{diagram}
-%\begin{center}
-%\begin{tikzpicture}[remember picture]
-%\node[gray] (testtest) {$\displaystyle{\visible<6->{\Vol_{\widetilde M}(s)=\int_{\str_n(s)}\omega_{\widetilde M}}}{\visible<8->{\implies\text{è $G$-invariante}}}$};
-%\end{tikzpicture}
-%\end{center}
 \begin{onslide}<6->
 \[
 \color{gray}\tikzmark{volume cocycle integral}{\visible<6->{\Vol_{\widetilde M}(s)=\int_{\str_n(s)}\omega_{\widetilde M}}}{\visible<8->{\implies\text{è $G$-invariante}}}
 \]
-\tikz[overlay,remember picture]
-\draw[-latex,gray!50] (volume cocycle VolMtilde) to[out=-170,in=180,out looseness=2,in looseness=1.5] ([shift={(-4pt,4pt)}]pic cs:volume cocycle integral);
+%\tikz[overlay,remember picture]\draw[-latex,gray!50] (volume cocycle VolMtilde) to[out=-170,in=180,out looseness=2,in looseness=1.5] ([shift={(-4pt,4pt)}]pic cs:volume cocycle integral);
+\tikz[overlay,remember picture]\draw[-latex,gray!50] ($(volume cocycle VolMtilde.center)+(-5pt,-7pt)$) .. controls ++(-5,-.5) and ++(-3,0) .. ([shift={(-4pt,4pt)}]pic cs:volume cocycle integral);
 \end{onslide}
 \end{frame}
 \subsection*{Coomologia continua}
