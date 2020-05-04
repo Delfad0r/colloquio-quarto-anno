@@ -185,7 +185,7 @@ Sia $M$ una $n$-varietà chiusa orientata, $[M]\in H_n(M)$ la sua classe fondame
 \begin{itemize}
 \item Sia $M$ una $n$-varietà Riemanniana chiusa e orientata con curvatura non positiva.
 \item Sia $\map{p}{\widetilde M}{M}$ il rivestimento universale.
-\item Sia $\Gamma=\pi_1(M)$ identificato con $\Aut(\widetilde M,p)$.
+\item Sia $\Gamma=\pi_1(M)$ identificato con $\Aut(\widetilde M,p)$.{\color{gray}$<\Isom^+(\widetilde M)$}
 \end{itemize}
 
 $\Gamma$ agisce sul complesso di cocatene $C^\bul(\widetilde M)$.
@@ -274,22 +274,23 @@ Per ogni $n$-simplesso $\map{s}{\Delta^n}{M}$ definiamo
 \Vol_M(s)=\int_{\str_n(s)}\omega_M.
 \]
 \begin{itemize}
-\item $\Vol_M(d_{n+1}(s))=0$, dunque è un cociclo.
+\item $\Vol_M(d_{n+1}(s))\tikzmarknode{volume cocycle stokes}{{}={}}0$, dunque è un cociclo.
+\tikz[overlay,remember picture]\draw[gray!50,-latex] ++(volume cocycle stokes) +(-1,.8) node[gray,anchor=east] {Stokes} to[bend left] +(0,5pt);
 \item Definisce una classe $[\Vol_M]\in H^n(M)$ in coomologia.
-\item Vale $[\Vol_M]=\Vol(M)\cdot[M]^*$\tikzmark{volume cocycle VolM}.
+\item Vale \tikzmarknode{volume cocycle VolM}{$[\Vol_M]=\Vol(M)\cdot[M]^*$.}
 \end{itemize}
 \vspace{.5cm}
 \[
-\color{gray} \norm{M}=\frac{1}{\norm{[M]^*}_\infty}\overset{\tikzmark{volume cocycle equal}}{=}\frac{\Vol(M)}{\norm{[\Vol_M]}_\infty}
+\color{gray} \norm{M}=\frac{1}{\norm{[M]^*}_\infty}\tikzmarknode{volume cocycle equal}{{}={}}\frac{\Vol(M)}{\norm{[\Vol_M]}_\infty}
 \]
-\tikz[remember picture,overlay]\draw[gray!50,-latex] (pic cs:volume cocycle VolM) to[bend left=15] (pic cs:volume cocycle equal);
+\tikz[remember picture,overlay]\draw[gray!50,-latex] (volume cocycle VolM.east) to[out=-30,in=90] ($(volume cocycle equal)+(0,5pt)$);
 \end{frame}
 \begin{frame}{\secname}{\subsecname}
 \begin{diagram}[row sep=tiny,remember picture]
 C^\bul(M)
 \rar["p^\bul","\iso"']\&
 C^\bul(\widetilde M)^\Gamma\&
-{\visible<9->{\lar[visible on=<9->,hook']C^\bul(\widetilde M)^G}}\\
+|[alias=volume cocycle tl]|{\visible<9->{\lar[visible on=<9->,hook']C^\bul(\widetilde M)^G}}\\
 {\visible<3->{\Vol_M}}
 \rar[visible on=<5->,mapsto]
 \&
@@ -301,22 +302,28 @@ C^\bul(\widetilde M)^\Gamma\&
 \rar[visible on=<2->,"\iso"]
 \&
 {\visible<2->{H^\bul(C^\bul(\widetilde M)^\Gamma)}}
+{\visible<13>{\rar[visible on=<13>,gray,"?",bend left]}}
 \&
-{\visible<10->{\lar[visible on=<10->,"\alt<11->{?}{}"']H^\bul(C^\bul(\widetilde M)^G)}}
+{\visible<10->{\lar[visible on=<10->,"\alt<12>{?}{}"']H^\bul(C^\bul(\widetilde M)^G)}}
 \\
 {\visible<4->{\left[\Vol_M\right]}}
 \rar[visible on=<7->,mapsto]
 \&
 {\visible<7->{\left[\Vol_{\widetilde M}\right]^\Gamma}}
 \&
-{\visible<10->{\lar[visible on=<10->,mapsto]\left[\Vol_{\widetilde M}\right]^G}}
+|[alias=volume cocycle br]|{\visible<10->{\lar[visible on=<10->,mapsto]\left[\Vol_{\widetilde M}\right]^G}}
 \end{diagram}
-\begin{onslide}<6->
+\begin{onslide}<6-10>
 \[
 \color{gray}\tikzmark{volume cocycle integral}{\visible<6->{\Vol_{\widetilde M}(s)=\int_{\str_n(s)}\omega_{\widetilde M}}}{\visible<8->{\implies\text{è $G$-invariante}}}
 \]
-%\tikz[overlay,remember picture]\draw[-latex,gray!50] (volume cocycle VolMtilde) to[out=-170,in=180,out looseness=2,in looseness=1.5] ([shift={(-4pt,4pt)}]pic cs:volume cocycle integral);
-\tikz[overlay,remember picture]\draw[-latex,gray!50] ($(volume cocycle VolMtilde.center)+(-5pt,-7pt)$) .. controls ++(-5,-.5) and ++(-3,0) .. ([shift={(-4pt,4pt)}]pic cs:volume cocycle integral);
+\tikz[overlay,remember picture]\draw[-latex,gray!50] ($(volume cocycle VolMtilde.center)+(-10pt,-7pt)$) .. controls ++(-5,-.5) and ++(-3,0) .. ([shift={(-4pt,4pt)}]pic cs:volume cocycle integral);
+\end{onslide}
+\begin{onslide}<11>
+\begin{tikzpicture}[overlay,remember picture]
+\draw[gray!50,rounded corners=10pt] ($(volume cocycle tl.north west)+(-.3cm,.2cm)$) rectangle ($(volume cocycle br.south east)+(.3cm,-.2cm)$);
+\draw[gray!50,-latex] ++($(volume cocycle br.south)+(0,-.2cm)$) to[out=-120,in=0] +(-2,-.7) node[gray,anchor=east] {non dipende da $M$};
+\end{tikzpicture}
 \end{onslide}
 \end{frame}
 \subsection*{Coomologia continua}
@@ -330,6 +337,7 @@ Una cocatena $\varphi\in C^k(M)$ è \emph{continua} se la restrizione
 è continua.
 \end{block}
 \begin{itemize}
+\item Si definisce $C^k_c(M)=\{\varphi\in C^k(M):\text{$\varphi$ è continua}\}$.
 \item $C^\bul_c(M)$ è un sottocomplesso di $C^\bul(M)$.
 \item Si pone $H^\bul_c(M)=H^\bul(C^\bul_c(M))$.
 \end{itemize}
@@ -362,7 +370,7 @@ H^\bul(C^\bul_c(\widetilde M)^G)\longhookrightarrow H^\bul(C^\bul_c(\widetilde M
 {\visible<4>{\Vol_{\widetilde M}}}\\
 \phantom{.}\\\phantom{.}\\}
 H^\bul(M)\&
-{\visible<2->{\lar[visible on=<2->,"\iso"']H^\bul_c(M)\rar[visible on=<3->,"\iso"]}}\&
+{\visible<2->{\lar[visible on=<2->,"\iso"']\tikzmarknode{isometric isomorphisms iso}{H^\bul_c(M)}\rar[visible on=<3->,"\iso"]}}\&
 {\visible<3->{H^\bul(C^\bul_c(\widetilde M)^\Gamma)}}\&
 {\visible<4->{\lar[visible on=<4->,hook']H^\bul(C^\bul_c(\widetilde M)^G)}}\\
 \left[\Vol_M\right]\&
@@ -370,21 +378,16 @@ H^\bul(M)\&
 {\visible<3->{\left[\Vol_{\widetilde M}\right]^\Gamma_c}}\&
 {\visible<4->{\lar[visible on=<4->,mapsto]\left[\Vol_{\widetilde M}\right]^G_c}}\\\phantom{.}
 \end{diagram}
+\tikz[overlay,remember picture,visible on=<3>]\draw[gray!50,-latex] ++($(isometric isomorphisms iso)+(1.25,0)$) +(-1,1) node[gray,anchor=east] {anche in $H^\bul_c$} to[bend left] +(0,10pt);
 \begin{onslide}<7->
 Possiamo infine calcolare:
-\vspace{-.5cm}
-\begin{center}
 \[
-\onslide<8->{\norm{M}=\frac{1}{\norm{[M]^*}_\infty}}\onslide<9->{\underset{\tikzmark{equal}}{=}\frac{\Vol(M)}{\norm{[\Vol_M]}_\infty}}\onslide<10->{=\frac{\Vol(M)}{\norm{[\Vol_{\widetilde M}]^G_c}_\infty}.}
+\onslide<8->{\norm{M}\tikzmarknode{isometric isomorphisms duality}{{}={}}\frac{1}{\norm{[M]^*}_\infty}\tikzmarknode{isometric isomorphisms vol}{{}={}}\frac{\Vol(M)}{\norm{[\Vol_M]}_\infty}}\onslide<9->{=\frac{\Vol(M)}{\norm{[\Vol_{\widetilde M}]^G_c}_\infty}.}
 \]
-\begin{tikzpicture}[remember picture,overlay,visible on=<9>]
-\node[gray] (expl) at ([shift={(0,-1cm)}]pic cs:equal) {$[\Vol_M]=\Vol(M)\cdot[M]^*$};
-\draw[-latex,gray!50] (expl) to (pic cs:equal);
+\begin{tikzpicture}[overlay,remember picture,visible on=<8>]
+\draw[gray!50,-latex] ++(isometric isomorphisms duality) +(-1,-1) node[gray,anchor=east] {dualità} to [bend right] +(0,-5pt);
+\draw[gray!50,-latex] ++(isometric isomorphisms vol) +(1,-1) node[gray,anchor=west] {$[Vol_M]=\Vol(M)\cdot[M]^*$} to [bend left] +(0,-5pt);
 \end{tikzpicture}
-%\begin{tikzpicture}
-%\node {$\displaystyle\onslide<8->{\norm{M}=\frac{1}{\norm{[M]^*}_\infty}}\onslide<9->=\frac{\Vol(M)}{\norm{[\Vol_M]}_\infty}}\onslide<10->{=\frac{\Vol(M)}{\norm{[\Vol_{\widetilde M}]^G_c}_\infty}.}$};
-%\end{tikzpicture}
-\end{center}
 \end{onslide}
 \end{frame}
 \end{document}
