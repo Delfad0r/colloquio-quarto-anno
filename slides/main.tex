@@ -86,7 +86,7 @@ da cui $\norm{M}=0$.
 \begin{block}{Teorema}
 Sia $M$ una $n$-varietà chiusa iperbolica. Allora
 \[
-\norm{M}=\frac{\Vol(M)}{v_n},
+\norm{M}=\frac{\Vol(M)}{v_n},{\color{gray}>0}
 \]
 dove $v_n$ è il volume dell'$n$-simplesso ideale regolare in $\HH^n$.
 \end{block}
@@ -98,34 +98,36 @@ Una varietà chiusa $M$ non può ammettere contemporaneamente una metrica euclid
 \begin{frame}{\secname}{\subsecname}
 Sia $\Sigma_g$ la superficie chiusa orientabile di genere $g$.
 \begin{itemize}
-\item Per $g\le 1$ vale $\norm{\Sigma_g}=0$. {\color{gray}$\Sigma_0=S^2$, $\Sigma_1=S^1\times S^1$};
+\item Per $g\le 1$ vale $\norm{\Sigma_g}=0$. \tikz[baseline=-.7ex]\draw[gray!50,-latex] (1,0) -- (0,0); {\color{gray}$\Sigma_0=S^2$, $\Sigma_1=S^1\times S^1$};
 \item Per $g\ge 2$, $\Sigma_g$ ammette una metrica iperbolica.
 
 \vspace{1cm}
 \[
-\norm{\Sigma_g}=\frac{\tikzmarknode[inner sep=3pt]{closed surfaces num}{\Vol(\Sigma_g)}}{\tikzmarknode[inner sep=3pt]{closed surfaces den}{v_2}}=-\frac{2\pi\chi(\Sigma_g)}{\pi}=4g-4
+\norm{\Sigma_g}=\frac{\tikzmarknode{closed surfaces num}{\Vol(\Sigma_g)}}{\tikzmarknode{closed surfaces den}{v_2}}=-\frac{2\pi\chi(\Sigma_g)}{\pi}=4g-4
 \]
 \end{itemize}
 \begin{tikzpicture}[remember picture,overlay]
-\node[gray,anchor=west] (gauss-bonnet) at ($(closed surfaces num)+(1cm,1cm)$) {Gauss-Bonnet};
-\node[gray,anchor=west,align=left] (ideal triangle) at ($(closed surfaces den)+(1cm,-1cm)$) {area del triangolo\\ideale in $\HH^2$};
-\draw[gray!50,-latex] (closed surfaces num.north) to[bend left] (gauss-bonnet.west);
-\draw[gray!50,-latex] (closed surfaces den.south) to[bend right] (ideal triangle.west);
+\draw[gray!50,-latex] ++(closed surfaces num) +(0,9pt) to[bend left] +(1,1) node[gray,anchor=west] {Gauss-Bonnet};
+\draw[gray!50,-latex] ++(closed surfaces den) +(0,-6pt) to[bend right] +(1,-1) node[gray,anchor=west,align=left] {area del triangolo\\ideale in $\HH^2$};
 \end{tikzpicture}
 \end{frame}
 \subsection{Mappe fra varietà iperboliche}
 \begin{frame}{\secname}{\subsecname}
 Se $M$, $N$ sono varietà iperboliche e $\map{f}{M}{N}$ una funzione continua, allora
 \[
-|\deg(f)|\le\frac{\norm{M}}{\norm{N}}=\frac{\Vol(M)}{\Vol(N)}.
+|\deg(f)|\le\frac{\norm{M}}{\norm{N}}\tikzmarknode{maps hyperbolic manifolds equal}{{}={}}\frac{\Vol(M)}{\Vol(N)}.
 \]
 \begin{block}{Mappe fra superfici}
 Sia $\map{f}{\Sigma_{g_1}}{\Sigma_{g_2}}$ con $g_1\ge1$, $g_2\ge 2$. Allora
 \[
-|\deg(f)|\le\frac{g_1-1}{g_2-1}.
+|\deg(f)|\tikzmarknode{maps hyperbolic manifolds le}{{}\le{}}\frac{g_1-1}{g_2-1}.
 \]
 % See https://math.stackexchange.com/a/2312535/665961
 \end{block}
+\begin{tikzpicture}[overlay,remember picture]
+\draw[gray!50,-latex] ++(maps hyperbolic manifolds equal) +(-1,-1.2) node[anchor=east,gray] {principio di proporzionalità} to[bend right] +(0,-5pt);
+\draw[gray!50,-latex] ++(maps hyperbolic manifolds le) +(1,-1.2) node[anchor=west,gray] {$\norm{\Sigma_g}=4g-4$} to [bend left] +(0,-7pt);
+\end{tikzpicture}
 \end{frame}
 
 \section{Principio di proporzionalità}
@@ -148,8 +150,11 @@ Sia $X$ uno spazio topologico
 \end{frame}
 \subsection{Dualità}
 \begin{frame}{\secname}{\subsecname}
-Il prodotto di Kronecker è l'applicazione bilineare
-\Map{\langle-,-\rangle}{H^n(X)\times H_n(X)}{\RR}{([\varphi],[z])}{\varphi(z).}
+Il prodotto di Kronecker è l'applicazione bilineare {\color{gray} ben definita}
+\begin{alignat*}{4}
+\langle-,-\rangle\colon&H^n(X)&\times H_n(X)&\longrightarrow{}&&\RR\\
+&(\;\;\;[\varphi]&,\;\;[z]\;\;\;)&\longmapsto{}&&\varphi(z).
+\end{alignat*}
 
 \begin{block}{Proposizione}
 Sia $\alpha\in H_n(X)$. Allora
@@ -163,10 +168,11 @@ Sia $\alpha\in H_n(X)$. Allora
 Sia $M$ una $n$-varietà chiusa orientata, $[M]\in H_n(M)$ la sua classe fondamentale.
 
 \begin{itemize}
-\item Esiste un'unica classe $[M]^*\in H^n(M)$ tale che
+\item \tikzmarknode{fundamental coclass exists}{Esiste un'unica} classe $[M]^*\in H^n(M)$ tale che
 \[
 \langle[M]^*,[M]\rangle=1.
 \]
+\tikz[overlay,remember picture]\draw[gray!50,-latex] ++(fundamental coclass exists) +(-.5,-1) node[anchor=north,gray,align=left] {$H_n(M)\iso\RR$\\$H^n(M)\iso\RR$} to[out=60,in=-100] +(0,-7pt);
 \item Per dualità, vale
 \[
 \norm{M}=\norm{[M]}_1=\frac{1}{\norm{[M]^*}_\infty}.
