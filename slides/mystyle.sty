@@ -3,6 +3,9 @@
 % Beamer
 \setbeamertemplate{navigation symbols}{}
 
+% Logic
+\usepackage{ifthen}
+
 % Math packages
 \usepackage{amsmath}
 \usepackage{amsfonts}
@@ -15,6 +18,33 @@
 % Diagrams
 \usepackage{tikz}
 \usetikzlibrary{tikzmark}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{decorations.pathreplacing}
+\newcounter{pos}
+\tikzset{
+  initcounter/.code={\setcounter{pos}{0}},
+  style between/.style n args={3}{
+    postaction={
+      initcounter,
+      decorate,
+      decoration={
+        show path construction,
+        curveto code={
+          \addtocounter{pos}{1}
+          \pgfmathtruncatemacro{\min}{#1 - 1}
+          \ifthenelse{\thepos < #2 \AND \thepos > \min}{
+            \draw[#3]
+            (\tikzinputsegmentfirst)
+            ..
+            controls (\tikzinputsegmentsupporta) and (\tikzinputsegmentsupportb)
+            ..
+            (\tikzinputsegmentlast);
+          }{}
+        }
+      }
+    },
+  },
+}
 \usepackage{tikz-cd}
 \tikzset{
     invisible/.style={opacity=0},
