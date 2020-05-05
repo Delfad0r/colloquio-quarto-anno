@@ -47,7 +47,7 @@ Sia $M$ una $n$-varietà chiusa orientata, $[M]\in H_n(M)$ la sua classe fondame
 \begin{frame}{\secname}{\subsecname}
 \onslide<2>{Lo dimostreremo con un'ipotesi aggiuntiva.}
 \begin{block}{Teorema}
-Sia $M$ una varietà Riemanniana chiusa\only<2>{ con curvatura non positiva}.\\
+Sia $M$ una varietà Riemanniana chiusa\only<2>{ \underline{con curvatura non positiva}}.\\
 Allora il rapporto
 \[
 \frac{\norm{M}}{\Vol(M)}\onslide<2>{=\frac{1}{\norm{[\Vol_{\widetilde M}]^G_c}_\infty}}
@@ -230,7 +230,7 @@ Il teorema di Cartan-Hadamard permette di definire il \emph{simplesso dritto} di
 \coordinate (x2) at (4,5);
 \coordinate (x3) at (2,8);
 \coordinate (p) at (4,2);
-\fill[style between={1}{3}{},style between={3}{4}{dashed},green!40!black,fill=green!70!black,fill opacity=.3]
+\fill[style between={1}{3}{},style between={3}{4}{dashed},orange!60!black,fill=orange,fill opacity=.4]
 (x0)  .. controls ++(20:3) and ++(170:3) ..
 (x1) .. controls ++(160:2) and ++(-60:2) ..
 (x2) .. controls ++(-100:2) and ++(30:2) .. cycle;
@@ -241,7 +241,7 @@ Il teorema di Cartan-Hadamard permette di definire il \emph{simplesso dritto} di
 \draw[postaction={decorate}] (x3) .. controls ++ (-85:2) and ++(130:2) .. (p);
 \end{scope}
 \foreach \c in {x0,x1,x2,x3} {\fill (\c) circle[radius=3pt];}
-\fill[green!40!black] (p) circle[radius=3pt];
+\fill[orange!60!black] (p) circle[radius=3pt];
 \foreach \i/\pos in {0/below left,1/right,2/above right,3/above} {\node[\pos] at (x\i) {$x_{\i}$};}
 \end{tikzpicture}
 \end{figure}
@@ -258,9 +258,9 @@ Il teorema di Cartan-Hadamard permette di definire il \emph{simplesso dritto} di
 \path[random waves=2.5 and 3.5 with name x1] (x1) .. controls ++(160:2) and ++(-60:2) .. (x2);
 \path[random waves=2.5 and 3.5 with name x2] (x2) .. controls ++(-100:2) and ++(30:2) .. (x0);
 \newcommand{\drawRoughSimplex}[2]{
-\draw[smooth,tension=.5,opacity=#2,red!30!black,fill=red,fill opacity=.3*#2] ($(x0)+#1$) \foreach \p/\q in {x0/x1,x1/x2,x2/x0} { -- plot coordinates {($(\p)+#1$) ($(\p-1)+#1$) ($(\p-2)+#1$) ($(\p-3)+#1$) ($(\p-4)+#1$) ($(\p-5)+#1$) ($(\p-6)+#1$) ($(\p-7)+#1$) ($(\p-8)+#1$) ($(\p-9)+#1$) ($(\q)+#1$)} };}
+\draw[smooth,tension=.5,opacity=#2,orange!60!black,fill=orange,fill opacity=.4*#2] ($(x0)+#1$) \foreach \p/\q in {x0/x1,x1/x2,x2/x0} { -- plot coordinates {($(\p)+#1$) ($(\p-1)+#1$) ($(\p-2)+#1$) ($(\p-3)+#1$) ($(\p-4)+#1$) ($(\p-5)+#1$) ($(\p-6)+#1$) ($(\p-7)+#1$) ($(\p-8)+#1$) ($(\p-9)+#1$) ($(\q)+#1$)} };}
 \newcommand{\drawSmoothSimplex}[2]{
-\draw[black,opacity=#2,green!30!black,fill=green,fill opacity=.4*#2]
+\draw[black,opacity=#2,blue!30!black,fill=blue,fill opacity=.4*#2]
 ($(x0)+#1$) .. controls ++(20:3) and ++(170:3) ..
 ($(x1)+#1$) .. controls ++(160:2) and ++(-60:2) ..
 ($(x2)+#1$) .. controls ++(-100:2) and ++(30:2) .. cycle;
@@ -272,24 +272,24 @@ Il teorema di Cartan-Hadamard permette di definire il \emph{simplesso dritto} di
 }
 }
 \onslide<1>{\drawRoughSimplex{(0,0)}{1}}
-\onslide<2->{\drawRoughSimplex{(0,0)}{.4}}
+\onslide<2->{\drawRoughSimplex{(0,0)}{.5}}
 \onslide<2>{\drawRoughSimplex{(0,\h1)}{1}}
-\onslide<3->{\drawRoughSimplex{(0,\h1)}{.4}}
+\onslide<3->{\drawRoughSimplex{(0,\h1)}{.5}}
 \onslide<3>{\drawSmoothSimplex{(0,\h1)}{1}}
-\onslide<4->{\drawSmoothSimplex{(0,\h1)}{.4}}
+\onslide<4->{\drawSmoothSimplex{(0,\h1)}{.5}}
 \onslide<4>{\drawSmoothSimplex{(0,0)}{1}}
 
 \foreach \p in {x0,x1,x2} {
-\fill[alt=<2-3>{red!30!gray}{alt=<1>{red!30!black}{green!30!black}}] (\p) circle[radius=2pt];
-\onslide<2->{\fill[alt=<2>{red!30!black}{alt=<3>{green!30!black}{green!30!gray}}] ($(\p)+(0,\h1)$) circle[radius=2pt];}
+\fill[alt=<2-3>{orange!60!gray}{alt=<1>{orange!60!black}{blue!30!black}}] (\p) circle[radius=2pt];
+\onslide<2->{\fill[alt=<2>{orange!60!black}{alt=<3>{blue!30!black}{blue!30!gray}}] ($(\p)+(0,\h1)$) circle[radius=2pt];}
 }
 \node (M) at ($(x1)+(3,2)$) {$M$};
 \node (Mtilde) at ($(x1)+(3,2+\h1)$) {$\widetilde M$};
 \draw[->,shorten <=10pt,shorten >=10pt] (Mtilde.south) -- (M.north) node[midway,right] {$p$};
-\onslide<1-3>{\node[alt=<1>{opacity=1}{opacity=.5},red!40!black] (s) at ($(M)+(-17,0)$) {$s$};}
-\onslide<2>{\node[alt=<2>{opacity=1}{opacity=.5},red!40!black] (stilde) at ($(s)+(0,\h1)$) {$\widetilde s$};}
-\onslide<3-4>{\node[alt=<3>{opacity=1}{opacity=.5},green!40!black] at (stilde) {$[\widetilde s(e_0),\ldots,\widetilde s(e_k)]$};}
-\onslide<4>{\node[green!40!black] at (s) {$\str_k(s)$};}
+\onslide<1-3>{\node[alt=<1>{opacity=1}{opacity=.5},orange!60!black] (s) at ($1/3*(x0)+1/3*(x1)+1/3*(x2)+(0,.5)$) {$s$};}
+\onslide<2>{\node[alt=<2>{opacity=1}{opacity=.5},orange!60!black] (stilde) at ($(s)+(0,\h1)$) {$\widetilde s$};}
+\onslide<3-4>{\node[alt=<3>{opacity=1}{opacity=.5},blue!30!black] (strtilde) at ($(Mtilde)+(-17,0)$) {$[\widetilde s(e_0),\ldots,\widetilde s(e_k)]$};}
+\onslide<4>{\node[blue!30!black] at ($(strtilde)+(0,-\h1)$) {$\str_k(s)$};}
 \end{tikzpicture}
 \end{center}
 \end{frame}
