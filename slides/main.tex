@@ -390,4 +390,37 @@ Possiamo infine calcolare:
 \end{tikzpicture}
 \end{onslide}
 \end{frame}
+\subsection{Varietà iperboliche}
+\begin{frame}{\secname}{\subsecname}
+\only<1>{
+Sia $M$ una $n$-varietà iperbolica chiusa.
+\begin{itemize}
+\item Il rivestimento universale è $\widetilde M=\HH^n$.
+\item Obiettivo: stimare $\tikzmarknode{hyperbolic manifolds vol}{\norm{[\Vol_{\HH^n}]^G_c}_\infty}$.
+\tikz[overlay,remember picture]\draw[gray!50,-latex] ++(hyperbolic manifolds vol.east) +(-4pt,2pt) to[out=-30,in=90] +(.3,-1) node[inner sep=-3pt,gray,anchor=north west] {$\begin{aligned}\Vol_{\HH^n}(s)&=\int_{\str_n(s)}\omega_{\HH^n}\le v_n\end{aligned}$};
+\item I simplessi dritti sono \emph{geodetici}.
+\end{itemize}
+\vspace{.5cm}
+}
+\begin{block}{Teorema}
+Sia $\Delta$ un $n$-simplesso geodetico in $\HH^n$. Allora
+\[
+\Vol(\Delta)\le v_n,
+\]
+dove $v_n$ è il volume del $n$-simplesso regolare ideale.
+\end{block}
+\only<2>{
+\begin{itemize}
+\item Per ogni $x\in C_n(\HH^n)$ vale
+\[
+|\Vol_{\HH^n}(c)|\le v_n\cdot\norm{c}_1\implies \norm{\Vol_{\HH^n}}_\infty\le v_n.
+\]
+\item Allora
+\[
+\tikzmarknode{hyperbolic manifolds vn}{\textstyle\norm{[\Vol_{\HH^n}]^G_c}_\infty}\le\norm{\Vol_{\HH^n}}_\infty\le v_n.
+\]
+\tikz[overlay,remember picture]\draw[gray!50,-latex] ++(hyperbolic manifolds vn.south west) +(-2pt,7pt) to[bend right] +(-1.8,0) node[gray,anchor=north] {$\displaystyle\norm{M}\ge\frac{\Vol(M)}{v_n}$};
+\end{itemize}
+}
+\end{frame}
 \end{document}
