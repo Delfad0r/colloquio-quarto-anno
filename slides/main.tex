@@ -247,25 +247,51 @@ Il teorema di Cartan-Hadamard permette di definire il \emph{simplesso dritto} di
 \end{figure}
 \end{minipage}
 \end{frame}
-\begin{frame}{\secname}{\subsecname}
-% Definire direttamente str senza tilde
-Per ogni $k$-simplesso singolare $\map{s}{\Delta^k}{\widetilde M}$ definiamo il simplesso
-\[
-\tstr_k(s)=[s(e_0),\ldots,s(e_k)].
-\]
+\begin{frame}[fragile]{\secname}{\subsecname}
+\begin{center}
+\begin{tikzpicture}[scale=.45]
+\coordinate (x0) at (0,0);
+\coordinate (x1) at (10,1);
+\coordinate (x2) at (4,5);
+\pgfmathsetseed{9}
+\path[random waves=2.5 and 4.5 with name x0] (x0) .. controls ++(20:3) and ++(170:3) .. (x1);
+\path[random waves=2.5 and 3.5 with name x1] (x1) .. controls ++(160:2) and ++(-60:2) .. (x2);
+\path[random waves=2.5 and 3.5 with name x2] (x2) .. controls ++(-100:2) and ++(30:2) .. (x0);
+\newcommand{\drawRoughSimplex}[2]{
+\draw[smooth,tension=.5,opacity=#2,red!30!black,fill=red,fill opacity=.3*#2] ($(x0)+#1$) \foreach \p/\q in {x0/x1,x1/x2,x2/x0} { -- plot coordinates {($(\p)+#1$) ($(\p-1)+#1$) ($(\p-2)+#1$) ($(\p-3)+#1$) ($(\p-4)+#1$) ($(\p-5)+#1$) ($(\p-6)+#1$) ($(\p-7)+#1$) ($(\p-8)+#1$) ($(\p-9)+#1$) ($(\q)+#1$)} };}
+\newcommand{\drawSmoothSimplex}[2]{
+\draw[black,opacity=#2,green!30!black,fill=green,fill opacity=.4*#2]
+($(x0)+#1$) .. controls ++(20:3) and ++(170:3) ..
+($(x1)+#1$) .. controls ++(160:2) and ++(-60:2) ..
+($(x2)+#1$) .. controls ++(-100:2) and ++(30:2) .. cycle;
+}
+\tikzmath{\h1=7;}
+\onslide<2->{
+\foreach \p in {x0,x1,x2} {
+\draw[thin,gray,dashed] ++(\p) -- +(0,\h1);
+}
+}
+\onslide<1>{\drawRoughSimplex{(0,0)}{1}}
+\onslide<2->{\drawRoughSimplex{(0,0)}{.4}}
+\onslide<2>{\drawRoughSimplex{(0,\h1)}{1}}
+\onslide<3->{\drawRoughSimplex{(0,\h1)}{.4}}
+\onslide<3>{\drawSmoothSimplex{(0,\h1)}{1}}
+\onslide<4->{\drawSmoothSimplex{(0,\h1)}{.4}}
+\onslide<4>{\drawSmoothSimplex{(0,0)}{1}}
 
-\begin{minipage}[t]{.6\textwidth}
-\begin{itemize}
-\item $\map{\tstr_\bul}{C_\bul(\widetilde M)}{C_\bul(\widetilde M)}$ è un morfismo di complessi $\Gamma$-equivariante.
-\item Induce $\map{\str_\bul}{C_\bul(M)}{C_\bul(M)}$.
-\item Entrambi i morfismi sono omotopi all'identità.
-\end{itemize}
-\end{minipage}
-\begin{minipage}[t]{.35\textwidth}
-\begin{itemize}
-\item\huge RIFARE
-\end{itemize}
-\end{minipage}
+\foreach \p in {x0,x1,x2} {
+\fill[alt=<2-3>{red!30!gray}{alt=<1>{red!30!black}{green!30!black}}] (\p) circle[radius=2pt];
+\onslide<2->{\fill[alt=<2>{red!30!black}{alt=<3>{green!30!black}{green!30!gray}}] ($(\p)+(0,\h1)$) circle[radius=2pt];}
+}
+\node (M) at ($(x1)+(3,2)$) {$M$};
+\node (Mtilde) at ($(x1)+(3,2+\h1)$) {$\widetilde M$};
+\draw[->,shorten <=10pt,shorten >=10pt] (Mtilde.south) -- (M.north) node[midway,right] {$p$};
+\onslide<1-3>{\node[alt=<1>{opacity=1}{opacity=.5},red!40!black] (s) at ($(M)+(-17,0)$) {$s$};}
+\onslide<2>{\node[alt=<2>{opacity=1}{opacity=.5},red!40!black] (stilde) at ($(s)+(0,\h1)$) {$\widetilde s$};}
+\onslide<3-4>{\node[alt=<3>{opacity=1}{opacity=.5},green!40!black] at (stilde) {$[\widetilde s(e_0),\ldots,\widetilde s(e_k)]$};}
+\onslide<4>{\node[green!40!black] at (s) {$\str_k(s)$};}
+\end{tikzpicture}
+\end{center}
 \end{frame}
 \subsection*{Cociclo volume}
 \begin{frame}{\secname}{\subsecname}

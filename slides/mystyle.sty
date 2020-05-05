@@ -19,8 +19,11 @@
 \usepackage{tikz}
 \usetikzlibrary{tikzmark}
 \usetikzlibrary{calc}
+\usetikzlibrary{math}
+\usetikzlibrary{backgrounds}
 \usetikzlibrary{decorations.markings}
 \usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{decorations.pathmorphing}
 \newcounter{pos}
 \tikzset{
   initcounter/.code={\setcounter{pos}{0}},
@@ -46,6 +49,17 @@
     },
   },
 }
+\tikzset{random waves/.style args={#1and#2with name #3}{postaction={decorate,decoration={markings,
+mark=at position 0.1 with {\coordinate[xshift={rand*#1},yshift={rand*#2}] (#3-1);},
+mark=at position 0.2 with {\coordinate[xshift={rand*#1},yshift={rand*#2}] (#3-2);},
+mark=at position 0.3 with {\coordinate[xshift={rand*#1},yshift={rand*#2}] (#3-3);},
+mark=at position 0.4 with {\coordinate[xshift={rand*#1},yshift={rand*#2}] (#3-4);},
+mark=at position 0.5 with {\coordinate[xshift={rand*#1},yshift={rand*#2}] (#3-5);},
+mark=at position 0.6 with {\coordinate[xshift={rand*#1},yshift={rand*#2}] (#3-6);},
+mark=at position 0.7 with {\coordinate[xshift={rand*#1},yshift={rand*#2}] (#3-7);},
+mark=at position 0.8 with {\coordinate[xshift={rand*#1},yshift={rand*#2}] (#3-8);},
+mark=at position 0.9 with {\coordinate[xshift={rand*#1},yshift={rand*#2}] (#3-9);}
+}}}}
 \usepackage{tikz-cd}
 \tikzset{
     invisible/.style={opacity=0},
