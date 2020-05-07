@@ -90,50 +90,49 @@ Sia $M$ una $n$-varietà chiusa iperbolica. Allora
 \]
 dove $v_n$ è il volume dell'$n$-simplesso ideale regolare in $\HH^n$.
 \end{block}
+\end{frame}
+\begin{frame}{\secname}{\subsecname}
 \begin{block}{Corollario}
 Una varietà chiusa $M$ non può ammettere contemporaneamente una metrica euclidea e una iperbolica.
+\end{block}
+\begin{block}{Corollario}
+Se $M$, $N$ sono varietà iperboliche e $\map{f}{M}{N}$ una funzione continua, allora
+\[
+|\deg(f)|\le\frac{\norm{M}}{\norm{N}}\tikzmarknode{maps hyperbolic manifolds equal}{{}={}}\frac{\Vol(M)}{\Vol(N)}.
+\]
+\tikz[overlay,remember picture]\draw[gray!50,-latex] ++(maps hyperbolic manifolds equal) +(-1,-1.2) node[anchor=east,gray] {principio di proporzionalità} to[bend right] +(0,-5pt);
 \end{block}
 \end{frame}
 \subsection{Superfici chiuse}
 \begin{frame}{\secname}{\subsecname}
 Sia $\Sigma_g$ la superficie chiusa orientabile di genere $g$.
+\begin{overlayarea}{\textwidth}{.4\textheight}
 \begin{itemize}
 \item Per $g\le 1$ vale $\norm{\Sigma_g}=0$. \tikz[baseline=-.7ex]\draw[gray!50,-latex] (1,0) -- (0,0); {\color{gray}$\Sigma_0=S^2$, $\Sigma_1=S^1\times S^1$};
-\item Per $g\ge 2$, $\Sigma_g$ ammette una metrica iperbolica.
+\item Per $g\ge 2$, \alt<1>{$\Sigma_g$ ammette una metrica iperbolica.
 
 \vspace{1cm}
 \[
 \norm{\Sigma_g}=\frac{\tikzmarknode{closed surfaces num}{\Vol(\Sigma_g)}}{\tikzmarknode{closed surfaces den}{v_2}}=-\frac{2\pi\chi(\Sigma_g)}{\pi}=4g-4
 \]
-\end{itemize}
 \begin{tikzpicture}[remember picture,overlay]
 \draw[gray!50,-latex] ++(closed surfaces num) +(0,9pt) to[bend left] +(1,1) node[gray,anchor=west] {Gauss-Bonnet};
 \draw[gray!50,-latex] ++(closed surfaces den) +(0,-6pt) to[bend right] +(1,-1) node[gray,anchor=west,align=left] {area del triangolo\\ideale in $\HH^2$};
 \end{tikzpicture}
-\end{frame}
-\subsection{Mappe fra varietà iperboliche}
-\begin{frame}{\secname}{\subsecname}
-Se $M$, $N$ sono varietà iperboliche e $\map{f}{M}{N}$ una funzione continua, allora
+}{$\norm{\Sigma_g}=4g-4$.}
+\item<2> Sia $\map{f}{\Sigma_{g_1}}{\Sigma_{g_2}}$ con $g_1\ge1$, $g_2\ge 2$. Allora
 \[
-|\deg(f)|\le\frac{\norm{M}}{\norm{N}}\tikzmarknode{maps hyperbolic manifolds equal}{{}={}}\frac{\Vol(M)}{\Vol(N)}.
-\]
-\begin{block}{Mappe fra superfici}
-Sia $\map{f}{\Sigma_{g_1}}{\Sigma_{g_2}}$ con $g_1\ge1$, $g_2\ge 2$. Allora
-\[
-|\deg(f)|\tikzmarknode{maps hyperbolic manifolds le}{{}\le{}}\frac{g_1-1}{g_2-1}.
+|\deg(f)|\le\frac{g_1-1}{g_2-1}=\frac{\chi(\Sigma_{g_1})}{\chi(\Sigma_{g_2})}.
 \]
 % See https://math.stackexchange.com/a/2312535/665961
-\end{block}
-\begin{tikzpicture}[overlay,remember picture]
-\draw[gray!50,-latex] ++(maps hyperbolic manifolds equal) +(-1,-1.2) node[anchor=east,gray] {principio di proporzionalità} to[bend right] +(0,-5pt);
-\draw[gray!50,-latex] ++(maps hyperbolic manifolds le) +(1,-1.2) node[anchor=west,gray] {$\norm{\Sigma_g}=4g-4$} to [bend left] +(0,-7pt);
-\end{tikzpicture}
+\end{itemize}
+\end{overlayarea}
 \end{frame}
 
 \section{Principio di proporzionalità}
 \subsection{Norma e seminorma $\ell^\infty$}
 \begin{frame}{\secname}{\subsecname}
-Sia $X$ uno spazio topologico
+Sia $X$ uno spazio topologico.
 \begin{diagram}
 \ldots\&\lar["\delta^{n+1}"']C^{n+1}(X)\&\lar["\delta^n"']C^n(X)\&\lar["\delta^{n-1}"']C^{n-1}(X)\&\lar["\delta^{n-2}"']\ldots
 \end{diagram}
