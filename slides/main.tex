@@ -1,7 +1,26 @@
 \documentclass{beamer}
 \usepackage{mystyle}
 
+\title{Principio di proporzionalità di Gromov}
+\newsavebox{\authorbox}
+\sbox{\authorbox}{%
+\begin{minipage}{0.45\linewidth}
+\centering
+{\footnotesize Studente}\\
+Filippo Gianni Baroni
+\end{minipage}
+\begin{minipage}{0.45\linewidth}
+\centering
+{\footnotesize Relatore}\\
+Prof. Roberto Frigerio
+\end{minipage}
+}
+\author[Filippo Gianni Baroni]{\usebox{\authorbox}}
+\institute[SNS]{Scuola Normale Superiore}
+\date{14 maggio 2020}
+
 \begin{document}
+\frame{\titlepage}
 \section{Volume simpliciale}
 \subsection{Norma e seminorma $\ell^1$}
 \begin{frame}{\secname}{\subsecname}
@@ -9,11 +28,13 @@ Sia $X$ uno spazio topologico.
 \begin{diagram}
 \ldots\rar{d_{n+2}}\&C_{n+1}(X)\rar{d_{n+1}}\&C_n(X)\rar{d_n}\&C_{n-1}(X)\rar{d_{n-1}}\&\ldots
 \end{diagram}
+\pause
 \begin{block}{Norma $\ell^1$ su $C_n(X)$}
 \[
 \norm{\sum a_is_i}_1=\sum|a_i|\in(0,+\infty)
 \]
 \end{block}
+\pause
 \begin{block}{Seminorma $\ell^1$ su $H_n(X)$}
 \[
 \norm{\alpha}_1=\inf\left\{\norm{c}_1:c\in Z_n(X),[c]=\alpha\right\}\in[0,+\infty)
@@ -23,7 +44,8 @@ Sia $X$ uno spazio topologico.
 \subsection{Classe fondamentale}
 \begin{frame}{\secname}{\subsecname}
 Sia $M$ una $n$-varietà chiusa orientata.
-\begin{itemize}
+\pause
+\begin{itemize}[<+->]
 \item $H_n(M,\ZZ)\iso\ZZ$.
 \item L'orientazione fissa un generatore $[M]_\ZZ\in H_n(M,\ZZ)$.
 \item Il cambio di coefficienti $C_\bul(M,\ZZ)\to C_\bul(M,\RR)$ induce
@@ -38,19 +60,20 @@ Sia $M$ una $n$-varietà chiusa orientata, $[M]\in H_n(M)$ la sua classe fondame
 \norm{M}=\norm{[M]}_1.
 \]
 \end{block}
-\begin{itemize}
+\pause
+\begin{itemize}[<+->]
 \item Non dipende dall'orientazione $\implies$ è ben definito per varietà chiuse orientabili.
 \item Può essere nullo, anche se $[M]\neq 0$.
 \end{itemize}
 \end{frame}
 \subsection{Principio di proporzionalità}
 \begin{frame}{\secname}{\subsecname}
-\onslide<2>{Lo dimostreremo con un'ipotesi aggiuntiva.}
-\begin{block}{Teorema}
-Sia $M$ una varietà Riemanniana chiusa\only<2>{ \underline{con curvatura non positiva}}.\\
+\onslide<2->{Lo dimostreremo con un'ipotesi aggiuntiva.}
+\begin{block}{Teorema (Gromov)}
+Sia $M$ una varietà Riemanniana chiusa\only<3->{ \underline{con curvatura non positiva}}.\\
 Allora il rapporto
 \[
-\frac{\norm{M}}{\Vol(M)}\onslide<2>{=\frac{1}{\norm{[\Vol_{\widetilde M}]^G_c}_\infty}}
+\frac{\norm{M}}{\Vol(M)}\onslide<4>{=\frac{1}{\norm{[\Vol_{\widetilde M}]^G_c}_\infty}}
 \]
 dipende solo dal tipo di isometria del rivestimento universale di $M$.
 \end{block}
@@ -65,20 +88,21 @@ Siano $M$, $N$ $n$-varietà chiuse orientate, $\map{f}{M}{N}$ una funzione conti
 |d|\cdot\norm{N}\le\norm{M}.
 \]
 \end{block}
+\pause
 \begin{block}{Corollario}
 Sia $\map{f}{M}{M}$ di grado $d\ge 2$. Allora $\norm{M}=0$.
 \end{block}
 \end{frame}
 \subsection{Varietà euclidee}
 \begin{frame}{\secname}{\subsecname}
-\begin{itemize}
+\begin{itemize}[<+->]
 \item L'$n$-toro $(S^1)^n$ ammette endomorfismi di grado arbitrariamente alto; di conseguenza, $\norm{(S^1)^n}=0$.
-\item $(S^1)^n$ ammette una metrica piatta, con rivestimento universale isometrico a $\RR^n$.
+\item $(S^1)^n$ ammette una metrica euclidea, con rivestimento universale isometrico a $\RR^n$.
 \item Data una qualunque $n$-varietà chiusa euclidea $M$, vale
 \[
-\frac{\norm{M}}{\Vol(M)}=\frac{\norm{(S^1)^n}}{\Vol((S^1)^n)}=0
+\frac{\norm{M}}{\Vol(M)}=\frac{\norm{(S^1)^n}}{\Vol((S^1)^n)}\onslide<+->{=0}
 \]
-da cui $\norm{M}=0$.
+\onslide<+(-1)->{da cui $\norm{M}=0$}.
 \end{itemize}
 \end{frame}
 \subsection{Varietà iperboliche}
@@ -86,7 +110,7 @@ da cui $\norm{M}=0$.
 \begin{block}{Teorema}
 Sia $M$ una $n$-varietà chiusa iperbolica. Allora
 \[
-\norm{M}=\frac{\Vol(M)}{v_n},{\color{gray}>0}
+\norm{M}=\frac{\Vol(M)}{v_n}\alt<2>{{\color{gray}>0}}{,}
 \]
 dove $v_n$ è il volume dell'$n$-simplesso ideale regolare in $\HH^n$.
 \end{block}
@@ -95,12 +119,13 @@ dove $v_n$ è il volume dell'$n$-simplesso ideale regolare in $\HH^n$.
 \begin{block}{Corollario}
 Una varietà chiusa $M$ non può ammettere contemporaneamente una metrica euclidea e una iperbolica.
 \end{block}
+\pause
 \begin{block}{Corollario}
 Se $M$, $N$ sono varietà iperboliche e $\map{f}{M}{N}$ una funzione continua, allora
 \[
-|\deg(f)|\le\frac{\norm{M}}{\norm{N}}\tikzmarknode{maps hyperbolic manifolds equal}{{}={}}\frac{\Vol(M)}{\Vol(N)}.
+|\deg(f)|\le\frac{\norm{M}}{\norm{N}}\onslide<3->{\tikzmarknode{maps hyperbolic manifolds equal}{{}={}}\frac{\Vol(M)}{\Vol(N)}.}
 \]
-\tikz[overlay,remember picture]\draw[gray!50,-latex] ++(maps hyperbolic manifolds equal) +(-1,-1.2) node[anchor=east,gray] {principio di proporzionalità} to[bend right] +(0,-5pt);
+\tikz[overlay,remember picture,visible on=<3>]\draw[gray!50,-latex] ++(maps hyperbolic manifolds equal) +(-1,-1.2) node[anchor=east,gray] {principio di proporzionalità} to[bend right] +(0,-5pt);
 \end{block}
 \end{frame}
 \subsection{Superfici chiuse}
@@ -108,22 +133,23 @@ Se $M$, $N$ sono varietà iperboliche e $\map{f}{M}{N}$ una funzione continua, a
 Sia $\Sigma_g$ la superficie chiusa orientabile di genere $g$.
 \begin{overlayarea}{\textwidth}{.4\textheight}
 \begin{itemize}
-\item Per $g\le 1$ vale $\norm{\Sigma_g}=0$. \tikz[baseline=-.7ex]\draw[gray!50,-latex] (1,0) -- (0,0); {\color{gray}$\Sigma_0=S^2$, $\Sigma_1=S^1\times S^1$};
-\item Per $g\ge 2$, \alt<1>{$\Sigma_g$ ammette una metrica iperbolica.
+\item<2-> Per $g\le 1$ vale $\norm{\Sigma_g}=0$. \onslide<2>{\tikz[baseline=-.7ex]\draw[gray!50,-latex] (1,0) -- (0,0); {\color{gray}$\Sigma_0=S^2$, $\Sigma_1=S^1\times S^1$}}
+\item<3-> Per $g\ge 2$, \alt<3-7>{$\Sigma_g$ ammette una metrica iperbolica.
 
 \vspace{1cm}
 \[
-\norm{\Sigma_g}=\frac{\tikzmarknode{closed surfaces num}{\Vol(\Sigma_g)}}{\tikzmarknode{closed surfaces den}{v_2}}=-\frac{2\pi\chi(\Sigma_g)}{\pi}=4g-4
+\onslide<4-7>{\norm{\Sigma_g}=\frac{\tikzmarknode{closed surfaces num}{\Vol(\Sigma_g)}}{\tikzmarknode{closed surfaces den}{v_2}}}\onslide<6-7>{=-\frac{2\pi\chi(\Sigma_g)}{\pi}}\onslide<7>{=4g-4}
 \]
 \begin{tikzpicture}[remember picture,overlay]
-\draw[gray!50,-latex] ++(closed surfaces num) +(0,9pt) to[bend left] +(1,1) node[gray,anchor=west] {Gauss-Bonnet};
-\draw[gray!50,-latex] ++(closed surfaces den) +(0,-6pt) to[bend right] +(1,-1) node[gray,anchor=west,align=left] {area del triangolo\\ideale in $\HH^2$};
+\draw[gray!50,-latex,visible on=<5-7>] ++(closed surfaces num) +(0,9pt) to[bend left] +(1,1) node[gray,anchor=west] {Gauss-Bonnet};
+\draw[gray!50,-latex, visible on=<4-7>] ++(closed surfaces den) +(0,-6pt) to[bend right] +(1,-1) node[gray,anchor=west,align=left] {area del triangolo\\ideale in $\HH^2$};
 \end{tikzpicture}
 }{$\norm{\Sigma_g}=4g-4$.}
-\item<2> Sia $\map{f}{\Sigma_{g_1}}{\Sigma_{g_2}}$ con $g_1\ge1$, $g_2\ge 2$. Allora
+\item<8-> Sia $\map{f}{\Sigma_{g_1}}{\Sigma_{g_2}}$ con $g_1\ge1$, $g_2\ge 2$. \onslide<9->{Allora
 \[
-|\deg(f)|\le\frac{g_1-1}{g_2-1}=\frac{\chi(\Sigma_{g_1})}{\chi(\Sigma_{g_2})}.
+|\deg(f)|\le\frac{g_1-1}{g_2-1}\pause=\frac{\chi(\Sigma_{g_1})}{\chi(\Sigma_{g_2})}.
 \]
+}
 % See https://math.stackexchange.com/a/2312535/665961
 \end{itemize}
 \end{overlayarea}
@@ -136,11 +162,13 @@ Sia $X$ uno spazio topologico.
 \begin{diagram}
 \ldots\&\lar["\delta^{n+1}"']C^{n+1}(X)\&\lar["\delta^n"']C^n(X)\&\lar["\delta^{n-1}"']C^{n-1}(X)\&\lar["\delta^{n-2}"']\ldots
 \end{diagram}
+\pause
 \begin{block}{Norma $\ell^\infty$ su $C^n(X)$}
 \[
 \norm{\varphi}_\infty=\sup\left\{|\varphi(c)|:c\in C_n(X),\norm{c}_1\le 1\right\}\in(0,+\infty]
 \]
 \end{block}
+\pause
 \begin{block}{Seminorma $\ell^\infty$ su $H^n(X)$}
 \[
 \norm{\beta}_\infty=\inf\left\{\norm{\varphi}_\infty:\varphi\in Z^n(X),[\varphi]=\beta\right\}\in[0,+\infty]
@@ -149,12 +177,12 @@ Sia $X$ uno spazio topologico.
 \end{frame}
 \subsection{Dualità}
 \begin{frame}{\secname}{\subsecname}
-Il prodotto di Kronecker è l'applicazione bilineare {\color{gray} ben definita}
+Il prodotto di Kronecker è l'applicazione bilineare
 \begin{alignat*}{4}
 \langle-,-\rangle\colon&H^n(X)&\times H_n(X)&\longrightarrow{}&&\RR\\
-&(\;\;\;[\varphi]&,\;\;[z]\;\;\;)&\longmapsto{}&&\varphi(z).
+&(\;\;\;[\varphi]&,\;\;[c]\;\;\;)&\longmapsto{}&&\varphi(c).
 \end{alignat*}
-
+\pause
 \begin{block}{Proposizione}
 Sia $\alpha\in H_n(X)$. Allora
 \[
@@ -164,14 +192,14 @@ Sia $\alpha\in H_n(X)$. Allora
 \end{frame}
 \subsection{Coclasse fondamentale}
 \begin{frame}{\secname}{\subsecname}
-Sia $M$ una $n$-varietà chiusa orientata, $[M]\in H_n(M)$ la sua classe fondamentale.
+Sia $M$ una $n$-varietà chiusa orientata, $[M]\in H_n(M)$ la sua classe fondamentale.\pause
 
-\begin{itemize}
+\begin{itemize}[<+->]
 \item \tikzmarknode{fundamental coclass exists}{Esiste un'unica} classe $[M]^*\in H^n(M)$ tale che
 \[
 \langle[M]^*,[M]\rangle=1.
 \]
-\tikz[overlay,remember picture]\draw[gray!50,-latex] ++(fundamental coclass exists) +(-.5,-1) node[anchor=north,gray,align=left] {$H_n(M)\iso\RR$\\$H^n(M)\iso\RR$} to[out=60,in=-100] +(0,-7pt);
+\tikz[overlay,remember picture,visible on=<2>]\draw[gray!50,-latex] ++(fundamental coclass exists) +(-.5,-1) node[anchor=north,gray,align=left] {$H_n(M)\iso\RR$\\$H^n(M)\iso\RR$} to[out=60,in=-100] +(0,-7pt);
 \item Per dualità, vale
 \[
 \norm{M}=\norm{[M]}_1=\frac{1}{\norm{[M]^*}_\infty}.
@@ -181,22 +209,23 @@ Sia $M$ una $n$-varietà chiusa orientata, $[M]\in H_n(M)$ la sua classe fondame
 
 \subsection{Coomologia $\Gamma$-invariante}
 \begin{frame}{\secname}{\subsecname}
-\begin{itemize}
+\begin{itemize}[<+->]
 \item Sia $M$ una $n$-varietà Riemanniana chiusa e orientata con curvatura non positiva.
 \item Sia $\map{p}{\widetilde M}{M}$ il rivestimento universale.
-\item Sia $\Gamma=\pi_1(M)$ identificato con $\Aut(\widetilde M,p)$.{\color{gray}$<\Isom^+(\widetilde M)$}
+\item Sia $\Gamma=\pi_1(M)$ identificato con $\Aut(\widetilde M,p)$\only<3>{{\color{gray}$<\Isom^+(\widetilde M)$}}.
 \end{itemize}
 
-$\Gamma$ agisce sul complesso di cocatene $C^\bul(\widetilde M)$.
+\onslide<+->{$\Gamma$ agisce sul complesso di cocatene $C^\bul(\widetilde M)$.}
+\onslide<+->{
 \begin{block}{Proposizione}
 Il rivestimento $p$ induce isomorfismi isometrici
 \begin{alignat*}{2}
 p^\bul\colon&&C^\bul(M)&\longrightarrow C^\bul(\widetilde M)^\Gamma,\\
-H^\bul(p^\bul)\colon&&H^\bul(M)&\longrightarrow H^\bul(C^\bul(\widetilde M)^\Gamma).
+\onslide<+->{H^\bul(p^\bul)\colon&&H^\bul(M)&\longrightarrow H^\bul(C^\bul(\widetilde M)^\Gamma).}
 \end{alignat*}
-\end{block}
+\end{block}}
 \end{frame}
-\subsection{Curvatura non negativa}
+\subsection{Curvatura non positiva}
 \begin{frame}{\secname}{\subsecname}
 \begin{block}{Teorema (Cartan-Hadamard)}
 La mappa esponenziale
@@ -205,7 +234,8 @@ La mappa esponenziale
 \]
 è un diffeomorfismo
 \end{block}
-\begin{itemize}
+\pause
+\begin{itemize}[<+->]
 \item $\widetilde M$ è diffeomorfo a $\RR^n$.
 \item Per ogni $x,y\in\widetilde M$ esiste un'unica geodetica che li collega.
 \item Le parametrizzazioni a velocità costante delle geodetiche dipendono in modo liscio dagli estremi.
@@ -215,14 +245,16 @@ La mappa esponenziale
 \begin{frame}{\secname}{\subsecname}
 Il teorema di Cartan-Hadamard permette di definire il \emph{simplesso dritto} di vertici $x_0,\ldots,x_k\in\widetilde M$.
 
+\pause
 \begin{minipage}[t]{.5\textwidth}
-\begin{itemize}
+\begin{itemize}[<+->]
 \item $k=0\leadsto$ $[x_0]$ è lo $0$-simplesso avente immagine $x_0$.
 \item $k>0\leadsto$ $[x_0,\ldots,x_k]$ è il ``cono geodetico'' di vertice $x_k$ e base $[x_0,\ldots,x_{k-1}]$.
 \end{itemize}
 \end{minipage}
 \begin{minipage}[t]{.45\textwidth}
 \begin{figure}
+\onslide<3->{
 \begin{tikzpicture}[scale=.35]
 \coordinate (x0) at (0,0);
 \coordinate (x1) at (10,1);
@@ -237,14 +269,17 @@ Il teorema di Cartan-Hadamard permette di definire il \emph{simplesso dritto} di
 \draw (x3) .. controls ++(-90:3) and ++(60:3) .. (x0);
 \draw (x3) .. controls ++(-80:4) and ++(165:4) .. (x1);
 \draw (x3) .. controls ++(-75:1) and ++(150:1) .. (x2);
-\draw[postaction={decorate}] (x3) .. controls ++ (-85:2) and ++(130:2) .. (p);
+\draw[gray!50!black,postaction={decorate}] (x3) .. controls ++ (-85:2) and ++(130:2) .. (p);
 \end{scope}
 \foreach \c in {x0,x1,x2,x3} {\fill (\c) circle[radius=3pt];}
 \fill[orange!60!black] (p) circle[radius=3pt];
 \foreach \i/\pos in {0/below left,1/right,2/above right,3/above} {\node[\pos] at (x\i) {$x_{\i}$};}
 \end{tikzpicture}
+}
 \end{figure}
 \end{minipage}
+
+\onslide<+->{I simplessi dritti sono lisci.}
 \end{frame}
 \begin{frame}[fragile]{\secname}{\subsecname}
 \begin{center}
@@ -298,17 +333,19 @@ Per ogni $n$-simplesso $\map{s}{\Delta^n}{M}$ definiamo
 \[
 \Vol_M(s)=\int_{\str_n(s)}\omega_M.
 \]
-\begin{itemize}
+\pause
+\begin{itemize}[<+->]
 \item $\Vol_M(d_{n+1}(s))\tikzmarknode{volume cocycle stokes}{{}={}}0$, dunque è un cociclo.
-\tikz[overlay,remember picture]\draw[gray!50,-latex] ++(volume cocycle stokes) +(-1,.8) node[gray,anchor=east] {Stokes} to[bend left] +(0,5pt);
+\tikz[overlay,remember picture]\draw[gray!50,-latex,visible on=<2>] ++(volume cocycle stokes) +(-1,.8) node[gray,anchor=east] {Stokes} to[bend left] +(0,5pt);
 \item Definisce una classe $[\Vol_M]\in H^n(M)$ in coomologia.
 \item Vale \tikzmarknode{volume cocycle VolM}{$[\Vol_M]=\Vol(M)\cdot[M]^*$.}
 \end{itemize}
 \vspace{.5cm}
+\onslide<5>{
 \[
 \color{gray} \norm{M}=\frac{1}{\norm{[M]^*}_\infty}\tikzmarknode{volume cocycle equal}{{}={}}\frac{\Vol(M)}{\norm{[\Vol_M]}_\infty}
 \]
-\tikz[remember picture,overlay]\draw[gray!50,-latex] (volume cocycle VolM.east) to[out=-30,in=90] ($(volume cocycle equal)+(0,5pt)$);
+\tikz[remember picture,overlay]\draw[gray!50,-latex] (volume cocycle VolM.east) to[out=-30,in=90] ($(volume cocycle equal)+(0,5pt)$);}
 \end{frame}
 \begin{frame}{\secname}{\subsecname}
 \begin{diagram}[row sep=tiny,remember picture]
@@ -354,6 +391,7 @@ C^\bul(\widetilde M)^\Gamma\&
 \subsection*{Coomologia continua}
 \begin{frame}{\secname}{\subsecname}
 Sia $S_k(M)=\{\Delta^k\to M\}$ lo spazio dei $k$-simplessi singolari, munito della topologia compatta-aperta.
+\pause
 \begin{block}{Definizione}
 Una cocatena $\varphi\in C^k(M)$ è \emph{continua} se la restrizione
 \[
@@ -361,9 +399,10 @@ Una cocatena $\varphi\in C^k(M)$ è \emph{continua} se la restrizione
 \]
 è continua.
 \end{block}
+\pause
 \begin{itemize}
 \item Si definisce $C^k_c(M)=\{\varphi\in C^k(M):\text{$\varphi$ è continua}\}$.
-\item $C^\bul_c(M)$ è un sottocomplesso di $C^\bul(M)$.
+\item $C^\bul_c(M)$ è un sottocomplesso di $C^\bul(M)$.\pause
 \item Si pone $H^\bul_c(M)=H^\bul(C^\bul_c(M))$.
 \end{itemize}
 \end{frame}
@@ -374,6 +413,7 @@ L'inclusione $C^\bul_c(M)\hookrightarrow C^\bul(M)$ induce un isomorfismo isomet
 H^\bul_c(M)\iso H^\bul(M).
 \]
 \end{block}
+\pause
 \begin{block}{Proposizione}
 L'inclusione $C^\bul_c(\widetilde M)^G\hookrightarrow C^\bul_c(\widetilde M)^\Gamma$ induce un'immersione isometrica
 \[
@@ -417,16 +457,17 @@ Possiamo infine calcolare:
 \end{frame}
 \subsection{Varietà iperboliche}
 \begin{frame}{\secname}{\subsecname}
-\only<1>{
-Sia $M$ una $n$-varietà iperbolica chiusa.
+\only<1-8>{
+\onslide<1-7>{Sia $M$ una $n$-varietà iperbolica chiusa.}
 \begin{itemize}
-\item Il rivestimento universale è $\widetilde M=\HH^n$.
-\item Obiettivo: stimare $\tikzmarknode{hyperbolic manifolds vol}{\norm{[\Vol_{\HH^n}]^G_c}_\infty}$.
-\tikz[overlay,remember picture]\draw[gray!50,-latex] ++(hyperbolic manifolds vol.east) +(-4pt,2pt) to[out=-30,in=90] +(.3,-1) node[inner sep=-3pt,gray,anchor=north west] {$\begin{aligned}\Vol_{\HH^n}(s)&=\int_{\str_n(s)}\omega_{\HH^n}\le v_n\end{aligned}$};
-\item I simplessi dritti sono \emph{geodetici}.
+\item<2-7> Il rivestimento universale è $\widetilde M=\HH^n$.
+\item<3-7> Obiettivo: stimare $\tikzmarknode{hyperbolic manifolds vol}{\norm{[\Vol_{\HH^n}]^G_c}_\infty}$.
+\tikz[overlay,remember picture,visible on=<4-7>]\draw[gray!50,-latex] ++(hyperbolic manifolds vol.east) +(-4pt,2pt) to[out=-30,in=90] +(.3,-1) node[inner sep=-3pt,gray,anchor=north west] {$\begin{aligned}\Vol_{\HH^n}(s)&=\int_{\str_n(s)}\omega_{\HH^n}\onslide<7>{\le v_n}\end{aligned}$};
+\item<5-7> I simplessi dritti sono \emph{geodetici}.
 \end{itemize}
 \vspace{.5cm}
 }
+\onslide<6->{
 \begin{block}{Teorema}
 Sia $\Delta$ un $n$-simplesso geodetico in $\HH^n$. Allora
 \[
@@ -434,17 +475,18 @@ Sia $\Delta$ un $n$-simplesso geodetico in $\HH^n$. Allora
 \]
 dove $v_n$ è il volume del $n$-simplesso regolare ideale.
 \end{block}
-\only<2>{
+}
+\only<9->{
 \begin{itemize}
-\item Per ogni $x\in C_n(\HH^n)$ vale
+\item<10-> Per ogni $x\in C_n(\HH^n)$ vale
 \[
 |\Vol_{\HH^n}(c)|\le v_n\cdot\norm{c}_1\implies \norm{\Vol_{\HH^n}}_\infty\le v_n.
 \]
-\item Allora
+\item<11-> Allora
 \[
-\tikzmarknode{hyperbolic manifolds vn}{\textstyle\norm{[\Vol_{\HH^n}]^G_c}_\infty}\le\norm{\Vol_{\HH^n}}_\infty\le v_n.
+\tikzmarknode{hyperbolic manifolds vn}{\textstyle\norm{[\Vol_{\HH^n}]^G_c}_\infty}\le\norm{\Vol_{\HH^n}}_\infty\onslide<12->{\le v_n.}
 \]
-\tikz[overlay,remember picture]\draw[gray!50,-latex] ++(hyperbolic manifolds vn.south west) +(-2pt,7pt) to[bend right] +(-1.8,0) node[gray,anchor=north] {$\displaystyle\norm{M}\ge\frac{\Vol(M)}{v_n}$};
+\tikz[overlay,remember picture,visible on=<13->]\draw[gray!50,-latex] ++(hyperbolic manifolds vn.south west) +(-2pt,7pt) to[bend right] +(-1.8,0) node[gray,anchor=north] {$\displaystyle\norm{M}\ge\frac{\Vol(M)}{v_n}$};
 \end{itemize}
 }
 \end{frame}
