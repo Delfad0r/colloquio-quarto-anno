@@ -31,7 +31,7 @@ Sia $X$ uno spazio topologico.
 \pause
 \begin{block}{Norma $\ell^1$ su $C_n(X)$}
 \[
-\norm{\sum a_is_i}_1=\sum|a_i|\in(0,+\infty)
+\norm{\sum a_is_i}_1=\sum|a_i|\in[0,+\infty)
 \]
 \end{block}
 \pause
@@ -96,13 +96,14 @@ Sia $\map{f}{M}{M}$ di grado $d\ge 2$. Allora $\norm{M}=0$.
 \subsection{Varietà euclidee}
 \begin{frame}{\secname}{\subsecname}
 \begin{itemize}[<+->]
-\item L'$n$-toro $(S^1)^n$ ammette endomorfismi di grado arbitrariamente alto; di conseguenza, $\norm{(S^1)^n}=0$.
+\item L'$n$-toro $(S^1)^n$ ammette endomorfismi di grado arbitrariamente alto; di conseguenza, $\norm{(S^1)^n}=\tikzmarknode{euclidean manifolds 1}{0}$.
 \item $(S^1)^n$ ammette una metrica euclidea, con rivestimento universale isometrico a $\RR^n$.
 \item Data una qualunque $n$-varietà chiusa euclidea $M$, vale
 \[
-\frac{\norm{M}}{\Vol(M)}=\frac{\norm{(S^1)^n}}{\Vol((S^1)^n)}\onslide<+->{=0}
+\frac{\norm{M}}{\Vol(M)}=\frac{\norm{(S^1)^n}}{\Vol((S^1)^n)}\onslide<+->{=\tikzmarknode{euclidean manifolds 2}{0}}
 \]
-\onslide<+(-1)->{da cui $\norm{M}=0$}.
+\tikz[overlay,remember picture,]\draw[opacity=.5,gray,-latex,visible on=<4>,shorten <=5pt,shorten >=5pt] (euclidean manifolds 1.east) to[out=0,in=0,looseness=2] (euclidean manifolds 2.east);
+\onslide<+(-1)->{da cui $\norm{M}=0$.}
 \end{itemize}
 \end{frame}
 \subsection{Varietà iperboliche}
@@ -110,7 +111,7 @@ Sia $\map{f}{M}{M}$ di grado $d\ge 2$. Allora $\norm{M}=0$.
 \begin{block}{Teorema}
 Sia $M$ una $n$-varietà chiusa iperbolica. Allora
 \[
-\norm{M}=\frac{\Vol(M)}{v_n}\alt<2>{{\color{gray}>0}}{,}
+\norm{M}=\frac{\Vol(M)}{v_n}\onslide<2>{{\color{gray}>0}}
 \]
 dove $v_n$ è il volume dell'$n$-simplesso ideale regolare in $\HH^n$.
 \end{block}
@@ -121,7 +122,7 @@ Una varietà chiusa $M$ non può ammettere contemporaneamente una metrica euclid
 \end{block}
 \pause
 \begin{block}{Corollario}
-Se $M$, $N$ sono varietà iperboliche e $\map{f}{M}{N}$ una funzione continua, allora
+Se $M$, $N$ sono varietà iperboliche e $\map{f}{M}{N}$ è una funzione continua, allora
 \[
 |\deg(f)|\le\frac{\norm{M}}{\norm{N}}\onslide<3->{\tikzmarknode{maps hyperbolic manifolds equal}{{}={}}\frac{\Vol(M)}{\Vol(N)}.}
 \]
@@ -165,7 +166,7 @@ Sia $X$ uno spazio topologico.
 \pause
 \begin{block}{Norma $\ell^\infty$ su $C^n(X)$}
 \[
-\norm{\varphi}_\infty=\sup\left\{|\varphi(c)|:c\in C_n(X),\norm{c}_1\le 1\right\}\in(0,+\infty]
+\norm{\varphi}_\infty=\sup\left\{|\varphi(c)|:c\in C_n(X),\norm{c}_1\le 1\right\}\in[0,+\infty]
 \]
 \end{block}
 \pause
@@ -232,7 +233,7 @@ La mappa esponenziale
 \[
 \map{\exp_x}{T_x\widetilde M}{\widetilde M}
 \]
-è un diffeomorfismo
+è un diffeomorfismo.
 \end{block}
 \pause
 \begin{itemize}[<+->]
@@ -390,10 +391,10 @@ C^\bul(\widetilde M)^\Gamma\&
 \end{frame}
 \subsection*{Coomologia continua}
 \begin{frame}{\secname}{\subsecname}
-Sia $S_k(M)=\{\Delta^k\to M\}$ lo spazio dei $k$-simplessi singolari, munito della topologia compatta-aperta.
+Sia $S_k(M)=\{\map{s}{\Delta^k}{M}\}$ lo spazio dei $k$-simplessi singolari, munito della topologia compatta-aperta.
 \pause
 \begin{block}{Definizione}
-Una cocatena $\varphi\in C^k(M)$ è \emph{continua} se la restrizione
+Una cocatena $\varphi\in C^k(M)$ si dice \emph{continua} se la restrizione
 \[
 \map{\varphi}{S_k(M)}{\RR}
 \]
